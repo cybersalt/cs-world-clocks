@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git init:*)",
+      "Bash(git remote add:*)",
+      "Bash(git submodule add:*)",
+      "Bash(git submodule:*)",
+      "Bash(\"C:/Program Files/7-Zip/7z.exe\" l \"e:/github/cs-world-clocks/dist/mod_worldclocks_v1.0.0.zip\")",
+      "Bash(cat:*)",
+      "Bash(perl -i -pe:*)",
+      "Bash(awk \"{gsub(/namespace Cybersalt\\Module\\WorldClocks\\Dispatcher;/, \"\"namespace Cybersalt\\Module\\WorldClocks\\Site\\Dispatcher;\"\"); print}\")",
+      "Bash(Get-ChildItem -Path \"e:\\github\\cs-world-clocks\" -Recurse -Directory)",
+      "Bash(Select-Object -ExpandProperty FullName)",
+      "Bash(\"C:/Program Files/7-Zip/7z.exe\" a:*)",
+      "Bash(git clone:*)",
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$(cat <<''EOF''\nAdd Joomla 5 Module Development Guide\n\nComprehensive guide for building Joomla 5 modules using the modern Dispatcher pattern with dependency injection. Includes critical discoveries about namespace-to-path mapping where the Site portion is auto-added by Joomla''s autoloader.\n\nKey topics covered:\n- File structure (no entry point file needed)\n- Namespace to file path mapping (Site in namespace != folder)\n- Manifest configuration with module attribute on services folder\n- Service provider setup\n- Dispatcher class with correct namespace\n- Template best practices\n- Asset registration with WebAssetManager\n- Common installation errors and solutions\n- Pre-release checklist\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")",
+      "Bash(git push:*)",
+      "Bash(git commit -m \"$(cat <<''EOF''\nInitial release of World Clocks module v1.0.0\n\nJoomla 5 native module displaying local time in world capitals with real-time updates.\n\nFeatures:\n- Three display styles: text list, digital cards, analog clocks\n- 50+ world capitals across all continents\n- 12/24 hour time format option\n- Show/hide seconds and date\n- Custom CSS field for per-instance styling\n- Real-time JavaScript updates\n- Fully translatable with language system\n\nBuilt using Joomla 5''s modern Dispatcher pattern with:\n- services/provider.php for dependency injection\n- src/Dispatcher/Dispatcher.php with Site namespace\n- WebAssetManager for CSS/JS registration\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
