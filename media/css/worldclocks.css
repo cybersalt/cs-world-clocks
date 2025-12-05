@@ -1,0 +1,233 @@
+/**
+ * @package     Cybersalt.Module
+ * @subpackage  mod_worldclocks
+ *
+ * @copyright   (C) 2025 Cybersalt. All rights reserved.
+ * @license     GNU General Public License version 2 or later
+ */
+
+/* Container */
+.mod-worldclocks {
+    --wc-bg: var(--body-bg, #ffffff);
+    --wc-text: var(--body-color, #333333);
+    --wc-border: var(--border-color, #dee2e6);
+    --wc-accent: var(--link-color, #0d6efd);
+    --wc-muted: var(--text-muted, #6c757d);
+}
+
+.worldclocks-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+/* Individual clock */
+.worldclock {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+}
+
+.worldclock__name {
+    font-weight: 600;
+    color: var(--wc-text);
+    margin-top: 0.5rem;
+    text-align: center;
+}
+
+.worldclock__date {
+    font-size: 0.85rem;
+    color: var(--wc-muted);
+    margin-top: 0.25rem;
+}
+
+/* ==================== */
+/* TEXT STYLE           */
+/* ==================== */
+.mod-worldclocks--text .worldclocks-container {
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.mod-worldclocks--text .worldclock {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--wc-border);
+}
+
+.mod-worldclocks--text .worldclock:last-child {
+    border-bottom: none;
+}
+
+.mod-worldclocks--text .worldclock__name {
+    margin-top: 0;
+    margin-right: 1rem;
+    order: -1;
+}
+
+.mod-worldclocks--text .worldclock__time {
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+.mod-worldclocks--text .worldclock__date {
+    margin-top: 0;
+    margin-left: 1rem;
+}
+
+/* ==================== */
+/* DIGITAL STYLE        */
+/* ==================== */
+.mod-worldclocks--digital .worldclock {
+    background: var(--wc-bg);
+    border: 1px solid var(--wc-border);
+    border-radius: 8px;
+    min-width: 150px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.mod-worldclocks--digital .worldclock__time {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--wc-text);
+    letter-spacing: 0.05em;
+}
+
+.mod-worldclocks--digital .worldclock__separator {
+    animation: blink 1s step-end infinite;
+}
+
+.mod-worldclocks--digital .worldclock__period {
+    font-size: 0.75em;
+    margin-left: 0.25rem;
+    text-transform: uppercase;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+/* ==================== */
+/* ANALOG STYLE         */
+/* ==================== */
+.mod-worldclocks--analog .worldclock {
+    min-width: 120px;
+}
+
+.worldclock__analog {
+    position: relative;
+    width: 100px;
+    height: 100px;
+}
+
+.worldclock__face {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: var(--wc-bg);
+    border: 3px solid var(--wc-text);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.worldclock__center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8px;
+    height: 8px;
+    background: var(--wc-accent);
+    border-radius: 50%;
+    z-index: 10;
+}
+
+.worldclock__hand {
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform-origin: 50% 100%;
+    background: var(--wc-text);
+    border-radius: 2px;
+}
+
+.worldclock__hand--hour {
+    width: 4px;
+    height: 25px;
+    margin-left: -2px;
+}
+
+.worldclock__hand--minute {
+    width: 3px;
+    height: 35px;
+    margin-left: -1.5px;
+}
+
+.worldclock__hand--second {
+    width: 1px;
+    height: 40px;
+    margin-left: -0.5px;
+    background: var(--wc-accent);
+}
+
+.worldclock__number {
+    position: absolute;
+    font-size: 0.7rem;
+    font-weight: bold;
+    color: var(--wc-text);
+    text-align: center;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    margin-left: -10px;
+    margin-top: -10px;
+}
+
+/* Position numbers around the clock face */
+.worldclock__number--12 { top: 8px; left: 50%; }
+.worldclock__number--1 { top: 13px; left: 73%; }
+.worldclock__number--2 { top: 27px; left: 87%; }
+.worldclock__number--3 { top: 50%; left: 92%; }
+.worldclock__number--4 { top: 73%; left: 87%; }
+.worldclock__number--5 { top: 87%; left: 73%; }
+.worldclock__number--6 { top: 92%; left: 50%; }
+.worldclock__number--7 { top: 87%; left: 27%; }
+.worldclock__number--8 { top: 73%; left: 13%; }
+.worldclock__number--9 { top: 50%; left: 8%; }
+.worldclock__number--10 { top: 27%; left: 13%; }
+.worldclock__number--11 { top: 13%; left: 27%; }
+
+/* ==================== */
+/* RESPONSIVE           */
+/* ==================== */
+@media (max-width: 576px) {
+    .worldclocks-container {
+        justify-content: center;
+    }
+
+    .mod-worldclocks--digital .worldclock__time {
+        font-size: 1.25rem;
+    }
+
+    .worldclock__analog {
+        width: 80px;
+        height: 80px;
+    }
+
+    .worldclock__hand--hour {
+        height: 20px;
+    }
+
+    .worldclock__hand--minute {
+        height: 28px;
+    }
+
+    .worldclock__hand--second {
+        height: 32px;
+    }
+}

@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension type="module" client="site" method="upgrade">
+    <name>MOD_WORLDCLOCKS</name>
+    <author>Cybersalt</author>
+    <creationDate>2025-12</creationDate>
+    <copyright>(C) 2025 Cybersalt. All rights reserved.</copyright>
+    <license>GNU General Public License version 2 or later</license>
+    <authorEmail>info@cybersalt.org</authorEmail>
+    <authorUrl>https://cybersalt.org</authorUrl>
+    <version>1.0.0</version>
+    <description>MOD_WORLDCLOCKS_DESC</description>
+    <namespace path="src">Cybersalt\Module\WorldClocks</namespace>
+
+    <files>
+        <folder module="mod_worldclocks">services</folder>
+        <folder>language</folder>
+        <folder>src</folder>
+        <folder>tmpl</folder>
+    </files>
+
+    <languages>
+        <language tag="en-GB">language/en-GB/mod_worldclocks.ini</language>
+        <language tag="en-GB">language/en-GB/mod_worldclocks.sys.ini</language>
+    </languages>
+
+    <media destination="mod_worldclocks" folder="media">
+        <folder>css</folder>
+        <folder>js</folder>
+    </media>
+
+    <config>
+        <fields name="params">
+            <fieldset name="basic">
+                <field
+                    name="capitals"
+                    type="list"
+                    label="MOD_WORLDCLOCKS_FIELD_CAPITALS_LABEL"
+                    description="MOD_WORLDCLOCKS_FIELD_CAPITALS_DESC"
+                    multiple="true"
+                    layout="joomla.form.field.list-fancy-select"
+                    default=""
+                >
+                    <option value="Europe/London">MOD_WORLDCLOCKS_CAPITAL_LONDON</option>
+                    <option value="Europe/Paris">MOD_WORLDCLOCKS_CAPITAL_PARIS</option>
+                    <option value="Europe/Berlin">MOD_WORLDCLOCKS_CAPITAL_BERLIN</option>
+                    <option value="Europe/Rome">MOD_WORLDCLOCKS_CAPITAL_ROME</option>
+                    <option value="Europe/Madrid">MOD_WORLDCLOCKS_CAPITAL_MADRID</option>
+                    <option value="Europe/Amsterdam">MOD_WORLDCLOCKS_CAPITAL_AMSTERDAM</option>
+                    <option value="Europe/Brussels">MOD_WORLDCLOCKS_CAPITAL_BRUSSELS</option>
+                    <option value="Europe/Vienna">MOD_WORLDCLOCKS_CAPITAL_VIENNA</option>
+                    <option value="Europe/Stockholm">MOD_WORLDCLOCKS_CAPITAL_STOCKHOLM</option>
+                    <option value="Europe/Oslo">MOD_WORLDCLOCKS_CAPITAL_OSLO</option>
+                    <option value="Europe/Copenhagen">MOD_WORLDCLOCKS_CAPITAL_COPENHAGEN</option>
+                    <option value="Europe/Helsinki">MOD_WORLDCLOCKS_CAPITAL_HELSINKI</option>
+                    <option value="Europe/Warsaw">MOD_WORLDCLOCKS_CAPITAL_WARSAW</option>
+                    <option value="Europe/Prague">MOD_WORLDCLOCKS_CAPITAL_PRAGUE</option>
+                    <option value="Europe/Budapest">MOD_WORLDCLOCKS_CAPITAL_BUDAPEST</option>
+                    <option value="Europe/Athens">MOD_WORLDCLOCKS_CAPITAL_ATHENS</option>
+                    <option value="Europe/Lisbon">MOD_WORLDCLOCKS_CAPITAL_LISBON</option>
+                    <option value="Europe/Dublin">MOD_WORLDCLOCKS_CAPITAL_DUBLIN</option>
+                    <option value="Europe/Zurich">MOD_WORLDCLOCKS_CAPITAL_BERN</option>
+                    <option value="Europe/Moscow">MOD_WORLDCLOCKS_CAPITAL_MOSCOW</option>
+                    <option value="Europe/Kiev">MOD_WORLDCLOCKS_CAPITAL_KYIV</option>
+                    <option value="America/New_York">MOD_WORLDCLOCKS_CAPITAL_WASHINGTON</option>
+                    <option value="America/Toronto">MOD_WORLDCLOCKS_CAPITAL_OTTAWA</option>
+                    <option value="America/Mexico_City">MOD_WORLDCLOCKS_CAPITAL_MEXICO_CITY</option>
+                    <option value="America/Havana">MOD_WORLDCLOCKS_CAPITAL_HAVANA</option>
+                    <option value="America/Panama">MOD_WORLDCLOCKS_CAPITAL_PANAMA_CITY</option>
+                    <option value="America/Bogota">MOD_WORLDCLOCKS_CAPITAL_BOGOTA</option>
+                    <option value="America/Lima">MOD_WORLDCLOCKS_CAPITAL_LIMA</option>
+                    <option value="America/Santiago">MOD_WORLDCLOCKS_CAPITAL_SANTIAGO</option>
+                    <option value="America/Sao_Paulo">MOD_WORLDCLOCKS_CAPITAL_BRASILIA</option>
+                    <option value="America/Argentina/Buenos_Aires">MOD_WORLDCLOCKS_CAPITAL_BUENOS_AIRES</option>
+                    <option value="America/Caracas">MOD_WORLDCLOCKS_CAPITAL_CARACAS</option>
+                    <option value="Asia/Tokyo">MOD_WORLDCLOCKS_CAPITAL_TOKYO</option>
+                    <option value="Asia/Seoul">MOD_WORLDCLOCKS_CAPITAL_SEOUL</option>
+                    <option value="Asia/Shanghai">MOD_WORLDCLOCKS_CAPITAL_BEIJING</option>
+                    <option value="Asia/Hong_Kong">MOD_WORLDCLOCKS_CAPITAL_HONG_KONG</option>
+                    <option value="Asia/Taipei">MOD_WORLDCLOCKS_CAPITAL_TAIPEI</option>
+                    <option value="Asia/Singapore">MOD_WORLDCLOCKS_CAPITAL_SINGAPORE</option>
+                    <option value="Asia/Bangkok">MOD_WORLDCLOCKS_CAPITAL_BANGKOK</option>
+                    <option value="Asia/Jakarta">MOD_WORLDCLOCKS_CAPITAL_JAKARTA</option>
+                    <option value="Asia/Manila">MOD_WORLDCLOCKS_CAPITAL_MANILA</option>
+                    <option value="Asia/Kuala_Lumpur">MOD_WORLDCLOCKS_CAPITAL_KUALA_LUMPUR</option>
+                    <option value="Asia/Ho_Chi_Minh">MOD_WORLDCLOCKS_CAPITAL_HANOI</option>
+                    <option value="Asia/Kolkata">MOD_WORLDCLOCKS_CAPITAL_NEW_DELHI</option>
+                    <option value="Asia/Dhaka">MOD_WORLDCLOCKS_CAPITAL_DHAKA</option>
+                    <option value="Asia/Karachi">MOD_WORLDCLOCKS_CAPITAL_ISLAMABAD</option>
+                    <option value="Asia/Kabul">MOD_WORLDCLOCKS_CAPITAL_KABUL</option>
+                    <option value="Asia/Tehran">MOD_WORLDCLOCKS_CAPITAL_TEHRAN</option>
+                    <option value="Asia/Baghdad">MOD_WORLDCLOCKS_CAPITAL_BAGHDAD</option>
+                    <option value="Asia/Riyadh">MOD_WORLDCLOCKS_CAPITAL_RIYADH</option>
+                    <option value="Asia/Dubai">MOD_WORLDCLOCKS_CAPITAL_ABU_DHABI</option>
+                    <option value="Asia/Jerusalem">MOD_WORLDCLOCKS_CAPITAL_JERUSALEM</option>
+                    <option value="Asia/Beirut">MOD_WORLDCLOCKS_CAPITAL_BEIRUT</option>
+                    <option value="Asia/Amman">MOD_WORLDCLOCKS_CAPITAL_AMMAN</option>
+                    <option value="Africa/Cairo">MOD_WORLDCLOCKS_CAPITAL_CAIRO</option>
+                    <option value="Africa/Johannesburg">MOD_WORLDCLOCKS_CAPITAL_PRETORIA</option>
+                    <option value="Africa/Lagos">MOD_WORLDCLOCKS_CAPITAL_ABUJA</option>
+                    <option value="Africa/Nairobi">MOD_WORLDCLOCKS_CAPITAL_NAIROBI</option>
+                    <option value="Africa/Casablanca">MOD_WORLDCLOCKS_CAPITAL_RABAT</option>
+                    <option value="Africa/Tunis">MOD_WORLDCLOCKS_CAPITAL_TUNIS</option>
+                    <option value="Africa/Algiers">MOD_WORLDCLOCKS_CAPITAL_ALGIERS</option>
+                    <option value="Australia/Sydney">MOD_WORLDCLOCKS_CAPITAL_CANBERRA</option>
+                    <option value="Pacific/Auckland">MOD_WORLDCLOCKS_CAPITAL_WELLINGTON</option>
+                    <option value="Pacific/Fiji">MOD_WORLDCLOCKS_CAPITAL_SUVA</option>
+                </field>
+
+                <field
+                    name="display_style"
+                    type="list"
+                    label="MOD_WORLDCLOCKS_FIELD_DISPLAY_STYLE_LABEL"
+                    description="MOD_WORLDCLOCKS_FIELD_DISPLAY_STYLE_DESC"
+                    default="digital"
+                >
+                    <option value="text">MOD_WORLDCLOCKS_STYLE_TEXT</option>
+                    <option value="digital">MOD_WORLDCLOCKS_STYLE_DIGITAL</option>
+                    <option value="analog">MOD_WORLDCLOCKS_STYLE_ANALOG</option>
+                </field>
+
+                <field
+                    name="time_format"
+                    type="list"
+                    label="MOD_WORLDCLOCKS_FIELD_TIME_FORMAT_LABEL"
+                    description="MOD_WORLDCLOCKS_FIELD_TIME_FORMAT_DESC"
+                    default="12"
+                >
+                    <option value="12">MOD_WORLDCLOCKS_FORMAT_12H</option>
+                    <option value="24">MOD_WORLDCLOCKS_FORMAT_24H</option>
+                </field>
+
+                <field
+                    name="show_seconds"
+                    type="radio"
+                    label="MOD_WORLDCLOCKS_FIELD_SHOW_SECONDS_LABEL"
+                    description="MOD_WORLDCLOCKS_FIELD_SHOW_SECONDS_DESC"
+                    default="1"
+                    class="btn-group btn-group-yesno"
+                >
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+
+                <field
+                    name="show_date"
+                    type="radio"
+                    label="MOD_WORLDCLOCKS_FIELD_SHOW_DATE_LABEL"
+                    description="MOD_WORLDCLOCKS_FIELD_SHOW_DATE_DESC"
+                    default="0"
+                    class="btn-group btn-group-yesno"
+                >
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+            </fieldset>
+
+            <fieldset name="advanced">
+                <field
+                    name="moduleclass_sfx"
+                    type="textarea"
+                    label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+                    description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC"
+                    rows="3"
+                />
+
+                <field
+                    name="custom_css"
+                    type="textarea"
+                    label="MOD_WORLDCLOCKS_FIELD_CUSTOM_CSS_LABEL"
+                    description="MOD_WORLDCLOCKS_FIELD_CUSTOM_CSS_DESC"
+                    rows="10"
+                    filter="raw"
+                    class="input-xxlarge"
+                />
+            </fieldset>
+        </fields>
+    </config>
+</extension>

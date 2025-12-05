@@ -1,0 +1,15 @@
+# Build outputs
+*.zip
+/dist/
+
+# IDE
+.idea/
+.vscode/
+*.sublime-*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Joomla Brain (referenced externally, not included)
+Joomla-Brain/
