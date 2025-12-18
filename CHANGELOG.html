@@ -1,0 +1,113 @@
+<div class="changelog-container">
+    <h1>World Clocks Module - Changelog</h1>
+
+    <div class="intro">
+        <p><strong>All notable changes to the World Clocks module will be documented in this file.</strong></p>
+        <p>The format is based on <a href="https://keepachangelog.com/en/1.0.0/">Keep a Changelog</a>, and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semantic Versioning</a>.</p>
+    </div>
+
+    <h2>
+        <span class="version-badge">v1.1.1</span>
+        <span class="date">2025-12-18</span>
+    </h2>
+
+    <h3><span class="section-icon">🐛</span> Fixes</h3>
+    <ul>
+        <li><strong>Preset Location Dropdown</strong>: Changed from <code>list</code> type with <code>fancy-select</code> to <code>groupedlist</code> type
+            <ul>
+                <li>"National Capitals" and "States &amp; Provinces" now display as proper <code>&lt;optgroup&gt;</code> headers</li>
+                <li>The Choices.js fancy-select library doesn't properly handle disabled separator options - they would appear empty or misplaced</li>
+                <li>Using <code>groupedlist</code> renders native HTML optgroups which browsers display correctly</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h2>
+        <span class="version-badge">v1.1.0</span>
+        <span class="date">2025-12-18</span>
+    </h2>
+
+    <h3><span class="section-icon">🚀</span> New Features</h3>
+    <ul>
+        <li><strong>Visitor's Local Time Clock</strong>: Auto-detect and display the visitor's local timezone
+            <ul>
+                <li>Uses browser's <code>Intl.DateTimeFormat().resolvedOptions().timeZone</code> for detection</li>
+                <li>Position at top or bottom of clock list via admin setting</li>
+                <li>Custom label option, or auto-display the full timezone identifier (e.g., "America/New_York")</li>
+                <li>Works with all three display styles (text, digital, analog)</li>
+            </ul>
+        </li>
+        <li><strong>Unified Clock Selector</strong>: Single sortable list combining all location types
+            <ul>
+                <li>Drag-and-drop reordering for all clocks using subform with <code>buttons="add,remove,move"</code></li>
+                <li>Preset locations (50+ capitals and regional cities) with grouped dropdown</li>
+                <li>Custom locations with manual timezone selection and custom label</li>
+                <li>Values encoded as <code>timezone|langKey</code> format for proper translation support</li>
+            </ul>
+        </li>
+        <li><strong>Live Preview in Admin</strong>: Real-time style preview while editing module settings
+            <ul>
+                <li>MutationObserver watches for DOM changes from Joomla's dynamic forms</li>
+                <li>Click/change/input events for immediate response on form inputs</li>
+                <li>Fallback polling ensures updates even for color pickers and other widgets</li>
+            </ul>
+        </li>
+        <li><strong>Style-Specific Customization</strong>: Separate styling options per display type
+            <ul>
+                <li><strong>Text list</strong>: city/time/date fonts, colors, border color</li>
+                <li><strong>Digital cards</strong>: fonts, colors, background, border, radius</li>
+                <li><strong>Analog clocks</strong>: size, face/border colors, hand colors, number styling</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h3><span class="section-icon">🔧</span> Changes</h3>
+    <ul>
+        <li>Combined separate capitals/regional_cities/clock_order fields into unified <code>clocks</code> subform</li>
+        <li>Local time shows full timezone identifier (e.g., "America/New_York") when no custom label set</li>
+    </ul>
+
+    <h3><span class="section-icon">🐛</span> Fixes</h3>
+    <ul>
+        <li><strong>Local time not displaying</strong>: Fixed wrong CSS selector (<code>.worldclocks</code> instead of <code>.worldclocks-container</code>)</li>
+        <li><strong>Template early return</strong>: Fixed when <code>$clocks</code> empty but local time enabled - now checks both conditions</li>
+        <li><strong>Local time label order</strong>: Fixed label appearing before date - now matches template order (time → date → name)</li>
+        <li><strong>Analog clock numbers</strong>: Fixed only showing 4 numbers instead of all 12 - now generates full clock face</li>
+    </ul>
+
+    <h2>
+        <span class="version-badge">v1.0.0</span>
+        <span class="date">2025-12-17</span>
+    </h2>
+
+    <h3><span class="section-icon">🚀</span> New Features</h3>
+    <ul>
+        <li><strong>Initial Release</strong>: Joomla 5 native module for displaying world clocks</li>
+        <li><strong>Three Display Styles</strong>:
+            <ul>
+                <li><strong>Text list</strong>: Simple rows with city name, optional date, and time</li>
+                <li><strong>Digital cards</strong>: Card-style display with prominent time</li>
+                <li><strong>Analog clocks</strong>: Traditional clock faces with moving hands</li>
+            </ul>
+        </li>
+        <li><strong>50+ World Capitals</strong>: Pre-configured capitals across all continents</li>
+        <li><strong>Time Format Options</strong>: 12-hour and 24-hour formats</li>
+        <li><strong>Show/Hide Options</strong>: Toggle seconds and date display</li>
+        <li><strong>Custom CSS Field</strong>: Per-instance styling capability with full CSS editor</li>
+        <li><strong>Real-Time Updates</strong>: JavaScript-powered clock updates every second (or minute if seconds hidden)</li>
+        <li><strong>Full Translation Support</strong>: All text uses Joomla's language system</li>
+    </ul>
+
+    <h3><span class="section-icon">📦</span> Technical</h3>
+    <ul>
+        <li>Built using Joomla 5's modern Dispatcher pattern (no entry point file)</li>
+        <li>Dependency injection via <code>services/provider.php</code></li>
+        <li>WebAssetManager for CSS/JS registration with automatic versioning</li>
+        <li>CSS variables for theme compatibility</li>
+        <li>BEM naming convention for CSS classes</li>
+    </ul>
+
+    <div class="footer">
+        <p>&copy; 2025 CyberSalt. All rights reserved. | <a href="https://github.com/cybersalt/cs-world-clocks">GitHub Repository</a></p>
+    </div>
+</div>
