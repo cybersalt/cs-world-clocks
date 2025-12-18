@@ -469,15 +469,17 @@ background: var(--atum-bg-dark, var(--body-bg, #fafafa));
 
 ### Always Use 7-Zip
 
+Always create packages inside the repository's `dist/` folder (create it if needed). Only include required module files - exclude documentation, dist folder contents, and other non-module files.
+
 ```powershell
-# From the module root directory
-& 'C:\Program Files\7-Zip\7z.exe' a -tzip '../mod_example_v1.0.0.zip' *
+# From the module root directory - package goes in dist/ folder
+& 'C:\Program Files\7-Zip\7z.exe' a -tzip 'dist/mod_example_v1.0.0.zip' mod_example.xml services src tmpl media language LICENSE
 ```
 
 ### Verify Package Structure
 
 ```powershell
-& 'C:\Program Files\7-Zip\7z.exe' l 'mod_example_v1.0.0.zip'
+& 'C:\Program Files\7-Zip\7z.exe' l 'dist/mod_example_v1.0.0.zip'
 ```
 
 Look for `D....` markers indicating proper directory entries:

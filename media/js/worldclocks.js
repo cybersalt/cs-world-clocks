@@ -69,13 +69,14 @@
          */
         addLocalTimeClock() {
             const localTimezone = this.getLocalTimezone();
-            const label = this.config.localTimeLabel || this.getTimezoneFriendlyName(localTimezone);
+            // Use custom label if provided, otherwise show full timezone identifier
+            const label = this.config.localTimeLabel || localTimezone;
 
             // Create the clock element based on display style
             const clockEl = this.createClockElement(localTimezone, label, true);
 
             // Find where to insert it
-            const clocksContainer = this.container.querySelector('.worldclocks');
+            const clocksContainer = this.container.querySelector('.worldclocks-container');
             if (!clocksContainer) return;
 
             if (this.config.localTimePosition === 'first') {
@@ -112,8 +113,7 @@
          * @returns {string}
          */
         getDigitalClockHTML(name) {
-            let html = '<div class="worldclock__name">' + this.escapeHtml(name) + '</div>';
-            html += '<div class="worldclock__time">';
+            let html = '<div class="worldclock__time">';
             html += '<span class="worldclock__hours">--</span>';
             html += '<span class="worldclock__separator">:</span>';
             html += '<span class="worldclock__minutes">--</span>';
@@ -133,6 +133,8 @@
                 html += '<div class="worldclock__date"></div>';
             }
 
+            html += '<div class="worldclock__name">' + this.escapeHtml(name) + '</div>';
+
             return html;
         }
 
@@ -144,10 +146,6 @@
         getAnalogClockHTML(name) {
             let html = '<div class="worldclock__analog">';
             html += '<div class="worldclock__face">';
-            html += '<span class="worldclock__number worldclock__number--12">12</span>';
-            html += '<span class="worldclock__number worldclock__number--3">3</span>';
-            html += '<span class="worldclock__number worldclock__number--6">6</span>';
-            html += '<span class="worldclock__number worldclock__number--9">9</span>';
             html += '<div class="worldclock__hand worldclock__hand--hour"></div>';
             html += '<div class="worldclock__hand worldclock__hand--minute"></div>';
 
@@ -156,12 +154,19 @@
             }
 
             html += '<div class="worldclock__center"></div>';
+
+            // Add all 12 numbers like the PHP template
+            for (let i = 1; i <= 12; i++) {
+                html += '<span class="worldclock__number worldclock__number--' + i + '">' + i + '</span>';
+            }
+
             html += '</div></div>';
-            html += '<div class="worldclock__name">' + this.escapeHtml(name) + '</div>';
 
             if (this.config.showDate) {
                 html += '<div class="worldclock__date"></div>';
             }
+
+            html += '<div class="worldclock__name">' + this.escapeHtml(name) + '</div>';
 
             return html;
         }

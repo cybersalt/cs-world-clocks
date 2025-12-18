@@ -115,193 +115,170 @@
                 />
 
                 <field
-                    name="capitals"
+                    name="clocks"
                     type="subform"
-                    label="MOD_WORLDCLOCKS_FIELD_CAPITALS_LABEL"
-                    description="MOD_WORLDCLOCKS_FIELD_CAPITALS_DESC"
+                    label="MOD_WORLDCLOCKS_FIELD_CLOCKS_LABEL"
+                    description="MOD_WORLDCLOCKS_FIELD_CLOCKS_DESC"
                     multiple="true"
                     layout="joomla.form.field.subform.repeatable"
                     buttons="add,remove,move"
-                    max="60"
+                    max="100"
                 >
                     <form>
                         <field
-                            name="city"
+                            name="location_type"
                             type="list"
-                            label="MOD_WORLDCLOCKS_FIELD_CAPITAL_CITY_LABEL"
-                            required="true"
-                            layout="joomla.form.field.list-fancy-select"
+                            label="MOD_WORLDCLOCKS_FIELD_LOCATION_TYPE_LABEL"
+                            default="preset"
                         >
-                            <!-- National Capitals - Europe -->
-                            <option value="Europe/London|MOD_WORLDCLOCKS_CAPITAL_LONDON">London, UK</option>
-                            <option value="Europe/Paris|MOD_WORLDCLOCKS_CAPITAL_PARIS">Paris, France</option>
-                            <option value="Europe/Berlin|MOD_WORLDCLOCKS_CAPITAL_BERLIN">Berlin, Germany</option>
-                            <option value="Europe/Rome|MOD_WORLDCLOCKS_CAPITAL_ROME">Rome, Italy</option>
-                            <option value="Europe/Madrid|MOD_WORLDCLOCKS_CAPITAL_MADRID">Madrid, Spain</option>
-                            <option value="Europe/Amsterdam|MOD_WORLDCLOCKS_CAPITAL_AMSTERDAM">Amsterdam, Netherlands</option>
-                            <option value="Europe/Brussels|MOD_WORLDCLOCKS_CAPITAL_BRUSSELS">Brussels, Belgium</option>
-                            <option value="Europe/Vienna|MOD_WORLDCLOCKS_CAPITAL_VIENNA">Vienna, Austria</option>
-                            <option value="Europe/Stockholm|MOD_WORLDCLOCKS_CAPITAL_STOCKHOLM">Stockholm, Sweden</option>
-                            <option value="Europe/Oslo|MOD_WORLDCLOCKS_CAPITAL_OSLO">Oslo, Norway</option>
-                            <option value="Europe/Copenhagen|MOD_WORLDCLOCKS_CAPITAL_COPENHAGEN">Copenhagen, Denmark</option>
-                            <option value="Europe/Helsinki|MOD_WORLDCLOCKS_CAPITAL_HELSINKI">Helsinki, Finland</option>
-                            <option value="Europe/Warsaw|MOD_WORLDCLOCKS_CAPITAL_WARSAW">Warsaw, Poland</option>
-                            <option value="Europe/Prague|MOD_WORLDCLOCKS_CAPITAL_PRAGUE">Prague, Czech Republic</option>
-                            <option value="Europe/Budapest|MOD_WORLDCLOCKS_CAPITAL_BUDAPEST">Budapest, Hungary</option>
-                            <option value="Europe/Athens|MOD_WORLDCLOCKS_CAPITAL_ATHENS">Athens, Greece</option>
-                            <option value="Europe/Lisbon|MOD_WORLDCLOCKS_CAPITAL_LISBON">Lisbon, Portugal</option>
-                            <option value="Europe/Dublin|MOD_WORLDCLOCKS_CAPITAL_DUBLIN">Dublin, Ireland</option>
-                            <option value="Europe/Zurich|MOD_WORLDCLOCKS_CAPITAL_BERN">Bern, Switzerland</option>
-                            <option value="Europe/Moscow|MOD_WORLDCLOCKS_CAPITAL_MOSCOW">Moscow, Russia</option>
-                            <option value="Europe/Kiev|MOD_WORLDCLOCKS_CAPITAL_KYIV">Kyiv, Ukraine</option>
-                            <!-- National Capitals - North America -->
-                            <option value="America/New_York|MOD_WORLDCLOCKS_CAPITAL_WASHINGTON">Washington D.C., USA</option>
-                            <option value="America/Toronto|MOD_WORLDCLOCKS_CAPITAL_OTTAWA">Ottawa, Canada</option>
-                            <option value="America/Mexico_City|MOD_WORLDCLOCKS_CAPITAL_MEXICO_CITY">Mexico City, Mexico</option>
-                            <option value="America/Havana|MOD_WORLDCLOCKS_CAPITAL_HAVANA">Havana, Cuba</option>
-                            <option value="America/Panama|MOD_WORLDCLOCKS_CAPITAL_PANAMA_CITY">Panama City, Panama</option>
-                            <!-- National Capitals - South America -->
-                            <option value="America/Bogota|MOD_WORLDCLOCKS_CAPITAL_BOGOTA">Bogota, Colombia</option>
-                            <option value="America/Lima|MOD_WORLDCLOCKS_CAPITAL_LIMA">Lima, Peru</option>
-                            <option value="America/Santiago|MOD_WORLDCLOCKS_CAPITAL_SANTIAGO">Santiago, Chile</option>
-                            <option value="America/Sao_Paulo|MOD_WORLDCLOCKS_CAPITAL_BRASILIA">Brasilia, Brazil</option>
-                            <option value="America/Argentina/Buenos_Aires|MOD_WORLDCLOCKS_CAPITAL_BUENOS_AIRES">Buenos Aires, Argentina</option>
-                            <option value="America/Caracas|MOD_WORLDCLOCKS_CAPITAL_CARACAS">Caracas, Venezuela</option>
-                            <!-- National Capitals - Asia -->
-                            <option value="Asia/Tokyo|MOD_WORLDCLOCKS_CAPITAL_TOKYO">Tokyo, Japan</option>
-                            <option value="Asia/Seoul|MOD_WORLDCLOCKS_CAPITAL_SEOUL">Seoul, South Korea</option>
-                            <option value="Asia/Shanghai|MOD_WORLDCLOCKS_CAPITAL_BEIJING">Beijing, China</option>
-                            <option value="Asia/Hong_Kong|MOD_WORLDCLOCKS_CAPITAL_HONG_KONG">Hong Kong</option>
-                            <option value="Asia/Taipei|MOD_WORLDCLOCKS_CAPITAL_TAIPEI">Taipei, Taiwan</option>
-                            <option value="Asia/Singapore|MOD_WORLDCLOCKS_CAPITAL_SINGAPORE">Singapore</option>
-                            <option value="Asia/Bangkok|MOD_WORLDCLOCKS_CAPITAL_BANGKOK">Bangkok, Thailand</option>
-                            <option value="Asia/Jakarta|MOD_WORLDCLOCKS_CAPITAL_JAKARTA">Jakarta, Indonesia</option>
-                            <option value="Asia/Manila|MOD_WORLDCLOCKS_CAPITAL_MANILA">Manila, Philippines</option>
-                            <option value="Asia/Kuala_Lumpur|MOD_WORLDCLOCKS_CAPITAL_KUALA_LUMPUR">Kuala Lumpur, Malaysia</option>
-                            <option value="Asia/Ho_Chi_Minh|MOD_WORLDCLOCKS_CAPITAL_HANOI">Hanoi, Vietnam</option>
-                            <option value="Asia/Kolkata|MOD_WORLDCLOCKS_CAPITAL_NEW_DELHI">New Delhi, India</option>
-                            <option value="Asia/Dhaka|MOD_WORLDCLOCKS_CAPITAL_DHAKA">Dhaka, Bangladesh</option>
-                            <option value="Asia/Karachi|MOD_WORLDCLOCKS_CAPITAL_ISLAMABAD">Islamabad, Pakistan</option>
-                            <option value="Asia/Kabul|MOD_WORLDCLOCKS_CAPITAL_KABUL">Kabul, Afghanistan</option>
-                            <option value="Asia/Tehran|MOD_WORLDCLOCKS_CAPITAL_TEHRAN">Tehran, Iran</option>
-                            <option value="Asia/Baghdad|MOD_WORLDCLOCKS_CAPITAL_BAGHDAD">Baghdad, Iraq</option>
-                            <option value="Asia/Riyadh|MOD_WORLDCLOCKS_CAPITAL_RIYADH">Riyadh, Saudi Arabia</option>
-                            <option value="Asia/Dubai|MOD_WORLDCLOCKS_CAPITAL_ABU_DHABI">Abu Dhabi, UAE</option>
-                            <option value="Asia/Jerusalem|MOD_WORLDCLOCKS_CAPITAL_JERUSALEM">Jerusalem, Israel</option>
-                            <option value="Asia/Beirut|MOD_WORLDCLOCKS_CAPITAL_BEIRUT">Beirut, Lebanon</option>
-                            <option value="Asia/Amman|MOD_WORLDCLOCKS_CAPITAL_AMMAN">Amman, Jordan</option>
-                            <!-- National Capitals - Africa -->
-                            <option value="Africa/Cairo|MOD_WORLDCLOCKS_CAPITAL_CAIRO">Cairo, Egypt</option>
-                            <option value="Africa/Johannesburg|MOD_WORLDCLOCKS_CAPITAL_PRETORIA">Pretoria, South Africa</option>
-                            <option value="Africa/Lagos|MOD_WORLDCLOCKS_CAPITAL_ABUJA">Abuja, Nigeria</option>
-                            <option value="Africa/Nairobi|MOD_WORLDCLOCKS_CAPITAL_NAIROBI">Nairobi, Kenya</option>
-                            <option value="Africa/Casablanca|MOD_WORLDCLOCKS_CAPITAL_RABAT">Rabat, Morocco</option>
-                            <option value="Africa/Tunis|MOD_WORLDCLOCKS_CAPITAL_TUNIS">Tunis, Tunisia</option>
-                            <option value="Africa/Algiers|MOD_WORLDCLOCKS_CAPITAL_ALGIERS">Algiers, Algeria</option>
-                            <!-- National Capitals - Oceania -->
-                            <option value="Australia/Sydney|MOD_WORLDCLOCKS_CAPITAL_CANBERRA">Canberra, Australia</option>
-                            <option value="Pacific/Auckland|MOD_WORLDCLOCKS_CAPITAL_WELLINGTON">Wellington, New Zealand</option>
-                            <option value="Pacific/Fiji|MOD_WORLDCLOCKS_CAPITAL_SUVA">Suva, Fiji</option>
+                            <option value="preset">MOD_WORLDCLOCKS_LOCATION_TYPE_PRESET</option>
+                            <option value="custom">MOD_WORLDCLOCKS_LOCATION_TYPE_CUSTOM</option>
                         </field>
-                    </form>
-                </field>
 
-                <field
-                    name="regional_cities"
-                    type="subform"
-                    label="MOD_WORLDCLOCKS_FIELD_REGIONAL_CITIES_LABEL"
-                    description="MOD_WORLDCLOCKS_FIELD_REGIONAL_CITIES_DESC"
-                    multiple="true"
-                    layout="joomla.form.field.subform.repeatable"
-                    buttons="add,remove,move"
-                    max="50"
-                >
-                    <form>
                         <field
-                            name="city"
-                            type="list"
-                            label="MOD_WORLDCLOCKS_FIELD_REGIONAL_CITY_LABEL"
-                            required="true"
-                            layout="joomla.form.field.list-fancy-select"
+                            name="preset_location"
+                            type="groupedlist"
+                            label="MOD_WORLDCLOCKS_FIELD_PRESET_LOCATION_LABEL"
+                            showon="location_type:preset"
                         >
-                            <!-- US States -->
-                            <option value="America/New_York|MOD_WORLDCLOCKS_CITY_NEW_YORK">New York, NY, USA</option>
-                            <option value="America/Los_Angeles|MOD_WORLDCLOCKS_CITY_LOS_ANGELES">Los Angeles, CA, USA</option>
-                            <option value="America/Chicago|MOD_WORLDCLOCKS_CITY_CHICAGO">Chicago, IL, USA</option>
-                            <option value="America/Denver|MOD_WORLDCLOCKS_CITY_DENVER">Denver, CO, USA</option>
-                            <option value="America/Phoenix|MOD_WORLDCLOCKS_CITY_PHOENIX">Phoenix, AZ, USA</option>
-                            <option value="America/Anchorage|MOD_WORLDCLOCKS_CITY_ANCHORAGE">Anchorage, AK, USA</option>
-                            <option value="Pacific/Honolulu|MOD_WORLDCLOCKS_CITY_HONOLULU">Honolulu, HI, USA</option>
-                            <option value="America/Detroit|MOD_WORLDCLOCKS_CITY_DETROIT">Detroit, MI, USA</option>
-                            <option value="America/Indiana/Indianapolis|MOD_WORLDCLOCKS_CITY_INDIANAPOLIS">Indianapolis, IN, USA</option>
-                            <!-- Canadian Provinces -->
-                            <option value="America/Vancouver|MOD_WORLDCLOCKS_CITY_VANCOUVER">Vancouver, BC, Canada</option>
-                            <option value="America/Edmonton|MOD_WORLDCLOCKS_CITY_EDMONTON">Edmonton, AB, Canada</option>
-                            <option value="America/Winnipeg|MOD_WORLDCLOCKS_CITY_WINNIPEG">Winnipeg, MB, Canada</option>
-                            <option value="America/Toronto|MOD_WORLDCLOCKS_CITY_TORONTO">Toronto, ON, Canada</option>
-                            <option value="America/Montreal|MOD_WORLDCLOCKS_CITY_MONTREAL">Montreal, QC, Canada</option>
-                            <option value="America/Halifax|MOD_WORLDCLOCKS_CITY_HALIFAX">Halifax, NS, Canada</option>
-                            <option value="America/St_Johns|MOD_WORLDCLOCKS_CITY_ST_JOHNS">St. John's, NL, Canada</option>
-                            <!-- Australian States -->
-                            <option value="Australia/Sydney|MOD_WORLDCLOCKS_CITY_SYDNEY">Sydney, NSW, Australia</option>
-                            <option value="Australia/Melbourne|MOD_WORLDCLOCKS_CITY_MELBOURNE">Melbourne, VIC, Australia</option>
-                            <option value="Australia/Brisbane|MOD_WORLDCLOCKS_CITY_BRISBANE">Brisbane, QLD, Australia</option>
-                            <option value="Australia/Perth|MOD_WORLDCLOCKS_CITY_PERTH">Perth, WA, Australia</option>
-                            <option value="Australia/Adelaide|MOD_WORLDCLOCKS_CITY_ADELAIDE">Adelaide, SA, Australia</option>
-                            <option value="Australia/Darwin|MOD_WORLDCLOCKS_CITY_DARWIN">Darwin, NT, Australia</option>
-                            <option value="Australia/Hobart|MOD_WORLDCLOCKS_CITY_HOBART">Hobart, TAS, Australia</option>
-                            <!-- UK Regions -->
-                            <option value="Europe/London|MOD_WORLDCLOCKS_CITY_LONDON">London, England</option>
-                            <option value="Europe/London|MOD_WORLDCLOCKS_CITY_EDINBURGH">Edinburgh, Scotland</option>
-                            <option value="Europe/London|MOD_WORLDCLOCKS_CITY_CARDIFF">Cardiff, Wales</option>
-                            <option value="Europe/London|MOD_WORLDCLOCKS_CITY_BELFAST">Belfast, N. Ireland</option>
-                            <!-- German States -->
-                            <option value="Europe/Berlin|MOD_WORLDCLOCKS_CITY_MUNICH">Munich, Germany</option>
-                            <option value="Europe/Berlin|MOD_WORLDCLOCKS_CITY_HAMBURG">Hamburg, Germany</option>
-                            <option value="Europe/Berlin|MOD_WORLDCLOCKS_CITY_FRANKFURT">Frankfurt, Germany</option>
-                            <!-- Indian States -->
-                            <option value="Asia/Kolkata|MOD_WORLDCLOCKS_CITY_MUMBAI">Mumbai, India</option>
-                            <option value="Asia/Kolkata|MOD_WORLDCLOCKS_CITY_BANGALORE">Bangalore, India</option>
-                            <option value="Asia/Kolkata|MOD_WORLDCLOCKS_CITY_CHENNAI">Chennai, India</option>
-                            <option value="Asia/Kolkata|MOD_WORLDCLOCKS_CITY_KOLKATA">Kolkata, India</option>
-                            <!-- Chinese Cities -->
-                            <option value="Asia/Shanghai|MOD_WORLDCLOCKS_CITY_SHANGHAI">Shanghai, China</option>
-                            <option value="Asia/Shanghai|MOD_WORLDCLOCKS_CITY_GUANGZHOU">Guangzhou, China</option>
-                            <option value="Asia/Shanghai|MOD_WORLDCLOCKS_CITY_SHENZHEN">Shenzhen, China</option>
-                            <!-- Brazilian States -->
-                            <option value="America/Sao_Paulo|MOD_WORLDCLOCKS_CITY_SAO_PAULO">Sao Paulo, Brazil</option>
-                            <option value="America/Sao_Paulo|MOD_WORLDCLOCKS_CITY_RIO">Rio de Janeiro, Brazil</option>
-                            <!-- Japanese Cities -->
-                            <option value="Asia/Tokyo|MOD_WORLDCLOCKS_CITY_OSAKA">Osaka, Japan</option>
-                            <option value="Asia/Tokyo|MOD_WORLDCLOCKS_CITY_KYOTO">Kyoto, Japan</option>
-                            <!-- Russian Cities -->
-                            <option value="Europe/Moscow|MOD_WORLDCLOCKS_CITY_ST_PETERSBURG">St. Petersburg, Russia</option>
-                            <option value="Asia/Vladivostok|MOD_WORLDCLOCKS_CITY_VLADIVOSTOK">Vladivostok, Russia</option>
-                            <!-- Mexican States -->
-                            <option value="America/Tijuana|MOD_WORLDCLOCKS_CITY_TIJUANA">Tijuana, Mexico</option>
-                            <option value="America/Cancun|MOD_WORLDCLOCKS_CITY_CANCUN">Cancun, Mexico</option>
+                            <group label="National Capitals">
+                                <!-- Europe -->
+                                <option value="Europe/London|MOD_WORLDCLOCKS_CAPITAL_LONDON">London, UK (Capital)</option>
+                                <option value="Europe/Paris|MOD_WORLDCLOCKS_CAPITAL_PARIS">Paris, France (Capital)</option>
+                                <option value="Europe/Berlin|MOD_WORLDCLOCKS_CAPITAL_BERLIN">Berlin, Germany (Capital)</option>
+                                <option value="Europe/Rome|MOD_WORLDCLOCKS_CAPITAL_ROME">Rome, Italy (Capital)</option>
+                                <option value="Europe/Madrid|MOD_WORLDCLOCKS_CAPITAL_MADRID">Madrid, Spain (Capital)</option>
+                                <option value="Europe/Amsterdam|MOD_WORLDCLOCKS_CAPITAL_AMSTERDAM">Amsterdam, Netherlands (Capital)</option>
+                                <option value="Europe/Brussels|MOD_WORLDCLOCKS_CAPITAL_BRUSSELS">Brussels, Belgium (Capital)</option>
+                                <option value="Europe/Vienna|MOD_WORLDCLOCKS_CAPITAL_VIENNA">Vienna, Austria (Capital)</option>
+                                <option value="Europe/Stockholm|MOD_WORLDCLOCKS_CAPITAL_STOCKHOLM">Stockholm, Sweden (Capital)</option>
+                                <option value="Europe/Oslo|MOD_WORLDCLOCKS_CAPITAL_OSLO">Oslo, Norway (Capital)</option>
+                                <option value="Europe/Copenhagen|MOD_WORLDCLOCKS_CAPITAL_COPENHAGEN">Copenhagen, Denmark (Capital)</option>
+                                <option value="Europe/Helsinki|MOD_WORLDCLOCKS_CAPITAL_HELSINKI">Helsinki, Finland (Capital)</option>
+                                <option value="Europe/Warsaw|MOD_WORLDCLOCKS_CAPITAL_WARSAW">Warsaw, Poland (Capital)</option>
+                                <option value="Europe/Prague|MOD_WORLDCLOCKS_CAPITAL_PRAGUE">Prague, Czech Republic (Capital)</option>
+                                <option value="Europe/Budapest|MOD_WORLDCLOCKS_CAPITAL_BUDAPEST">Budapest, Hungary (Capital)</option>
+                                <option value="Europe/Athens|MOD_WORLDCLOCKS_CAPITAL_ATHENS">Athens, Greece (Capital)</option>
+                                <option value="Europe/Lisbon|MOD_WORLDCLOCKS_CAPITAL_LISBON">Lisbon, Portugal (Capital)</option>
+                                <option value="Europe/Dublin|MOD_WORLDCLOCKS_CAPITAL_DUBLIN">Dublin, Ireland (Capital)</option>
+                                <option value="Europe/Zurich|MOD_WORLDCLOCKS_CAPITAL_BERN">Bern, Switzerland (Capital)</option>
+                                <option value="Europe/Moscow|MOD_WORLDCLOCKS_CAPITAL_MOSCOW">Moscow, Russia (Capital)</option>
+                                <option value="Europe/Kiev|MOD_WORLDCLOCKS_CAPITAL_KYIV">Kyiv, Ukraine (Capital)</option>
+                                <!-- North America -->
+                                <option value="America/New_York|MOD_WORLDCLOCKS_CAPITAL_WASHINGTON">Washington D.C., USA (Capital)</option>
+                                <option value="America/Toronto|MOD_WORLDCLOCKS_CAPITAL_OTTAWA">Ottawa, Canada (Capital)</option>
+                                <option value="America/Mexico_City|MOD_WORLDCLOCKS_CAPITAL_MEXICO_CITY">Mexico City, Mexico (Capital)</option>
+                                <option value="America/Havana|MOD_WORLDCLOCKS_CAPITAL_HAVANA">Havana, Cuba (Capital)</option>
+                                <option value="America/Panama|MOD_WORLDCLOCKS_CAPITAL_PANAMA_CITY">Panama City, Panama (Capital)</option>
+                                <!-- South America -->
+                                <option value="America/Bogota|MOD_WORLDCLOCKS_CAPITAL_BOGOTA">Bogota, Colombia (Capital)</option>
+                                <option value="America/Lima|MOD_WORLDCLOCKS_CAPITAL_LIMA">Lima, Peru (Capital)</option>
+                                <option value="America/Santiago|MOD_WORLDCLOCKS_CAPITAL_SANTIAGO">Santiago, Chile (Capital)</option>
+                                <option value="America/Sao_Paulo|MOD_WORLDCLOCKS_CAPITAL_BRASILIA">Brasilia, Brazil (Capital)</option>
+                                <option value="America/Argentina/Buenos_Aires|MOD_WORLDCLOCKS_CAPITAL_BUENOS_AIRES">Buenos Aires, Argentina (Capital)</option>
+                                <option value="America/Caracas|MOD_WORLDCLOCKS_CAPITAL_CARACAS">Caracas, Venezuela (Capital)</option>
+                                <!-- Asia -->
+                                <option value="Asia/Tokyo|MOD_WORLDCLOCKS_CAPITAL_TOKYO">Tokyo, Japan (Capital)</option>
+                                <option value="Asia/Seoul|MOD_WORLDCLOCKS_CAPITAL_SEOUL">Seoul, South Korea (Capital)</option>
+                                <option value="Asia/Shanghai|MOD_WORLDCLOCKS_CAPITAL_BEIJING">Beijing, China (Capital)</option>
+                                <option value="Asia/Hong_Kong|MOD_WORLDCLOCKS_CAPITAL_HONG_KONG">Hong Kong</option>
+                                <option value="Asia/Taipei|MOD_WORLDCLOCKS_CAPITAL_TAIPEI">Taipei, Taiwan (Capital)</option>
+                                <option value="Asia/Singapore|MOD_WORLDCLOCKS_CAPITAL_SINGAPORE">Singapore</option>
+                                <option value="Asia/Bangkok|MOD_WORLDCLOCKS_CAPITAL_BANGKOK">Bangkok, Thailand (Capital)</option>
+                                <option value="Asia/Jakarta|MOD_WORLDCLOCKS_CAPITAL_JAKARTA">Jakarta, Indonesia (Capital)</option>
+                                <option value="Asia/Manila|MOD_WORLDCLOCKS_CAPITAL_MANILA">Manila, Philippines (Capital)</option>
+                                <option value="Asia/Kuala_Lumpur|MOD_WORLDCLOCKS_CAPITAL_KUALA_LUMPUR">Kuala Lumpur, Malaysia (Capital)</option>
+                                <option value="Asia/Ho_Chi_Minh|MOD_WORLDCLOCKS_CAPITAL_HANOI">Hanoi, Vietnam (Capital)</option>
+                                <option value="Asia/Kolkata|MOD_WORLDCLOCKS_CAPITAL_NEW_DELHI">New Delhi, India (Capital)</option>
+                                <option value="Asia/Dhaka|MOD_WORLDCLOCKS_CAPITAL_DHAKA">Dhaka, Bangladesh (Capital)</option>
+                                <option value="Asia/Karachi|MOD_WORLDCLOCKS_CAPITAL_ISLAMABAD">Islamabad, Pakistan (Capital)</option>
+                                <option value="Asia/Kabul|MOD_WORLDCLOCKS_CAPITAL_KABUL">Kabul, Afghanistan (Capital)</option>
+                                <option value="Asia/Tehran|MOD_WORLDCLOCKS_CAPITAL_TEHRAN">Tehran, Iran (Capital)</option>
+                                <option value="Asia/Baghdad|MOD_WORLDCLOCKS_CAPITAL_BAGHDAD">Baghdad, Iraq (Capital)</option>
+                                <option value="Asia/Riyadh|MOD_WORLDCLOCKS_CAPITAL_RIYADH">Riyadh, Saudi Arabia (Capital)</option>
+                                <option value="Asia/Dubai|MOD_WORLDCLOCKS_CAPITAL_ABU_DHABI">Abu Dhabi, UAE (Capital)</option>
+                                <option value="Asia/Jerusalem|MOD_WORLDCLOCKS_CAPITAL_JERUSALEM">Jerusalem, Israel (Capital)</option>
+                                <option value="Asia/Beirut|MOD_WORLDCLOCKS_CAPITAL_BEIRUT">Beirut, Lebanon (Capital)</option>
+                                <option value="Asia/Amman|MOD_WORLDCLOCKS_CAPITAL_AMMAN">Amman, Jordan (Capital)</option>
+                                <!-- Africa -->
+                                <option value="Africa/Cairo|MOD_WORLDCLOCKS_CAPITAL_CAIRO">Cairo, Egypt (Capital)</option>
+                                <option value="Africa/Johannesburg|MOD_WORLDCLOCKS_CAPITAL_PRETORIA">Pretoria, South Africa (Capital)</option>
+                                <option value="Africa/Lagos|MOD_WORLDCLOCKS_CAPITAL_ABUJA">Abuja, Nigeria (Capital)</option>
+                                <option value="Africa/Nairobi|MOD_WORLDCLOCKS_CAPITAL_NAIROBI">Nairobi, Kenya (Capital)</option>
+                                <option value="Africa/Casablanca|MOD_WORLDCLOCKS_CAPITAL_RABAT">Rabat, Morocco (Capital)</option>
+                                <option value="Africa/Tunis|MOD_WORLDCLOCKS_CAPITAL_TUNIS">Tunis, Tunisia (Capital)</option>
+                                <option value="Africa/Algiers|MOD_WORLDCLOCKS_CAPITAL_ALGIERS">Algiers, Algeria (Capital)</option>
+                                <!-- Oceania -->
+                                <option value="Australia/Sydney|MOD_WORLDCLOCKS_CAPITAL_CANBERRA">Canberra, Australia (Capital)</option>
+                                <option value="Pacific/Auckland|MOD_WORLDCLOCKS_CAPITAL_WELLINGTON">Wellington, New Zealand (Capital)</option>
+                                <option value="Pacific/Fiji|MOD_WORLDCLOCKS_CAPITAL_SUVA">Suva, Fiji (Capital)</option>
+                            </group>
+                            <group label="States &amp; Provinces">
+                                <!-- US States -->
+                                <option value="America/New_York|MOD_WORLDCLOCKS_CITY_NEW_YORK">New York, NY, USA</option>
+                                <option value="America/Los_Angeles|MOD_WORLDCLOCKS_CITY_LOS_ANGELES">Los Angeles, CA, USA</option>
+                                <option value="America/Chicago|MOD_WORLDCLOCKS_CITY_CHICAGO">Chicago, IL, USA</option>
+                                <option value="America/Denver|MOD_WORLDCLOCKS_CITY_DENVER">Denver, CO, USA</option>
+                                <option value="America/Phoenix|MOD_WORLDCLOCKS_CITY_PHOENIX">Phoenix, AZ, USA</option>
+                                <option value="America/Anchorage|MOD_WORLDCLOCKS_CITY_ANCHORAGE">Anchorage, AK, USA</option>
+                                <option value="Pacific/Honolulu|MOD_WORLDCLOCKS_CITY_HONOLULU">Honolulu, HI, USA</option>
+                                <option value="America/Detroit|MOD_WORLDCLOCKS_CITY_DETROIT">Detroit, MI, USA</option>
+                                <option value="America/Indiana/Indianapolis|MOD_WORLDCLOCKS_CITY_INDIANAPOLIS">Indianapolis, IN, USA</option>
+                                <!-- Canadian Provinces -->
+                                <option value="America/Vancouver|MOD_WORLDCLOCKS_CITY_VANCOUVER">Vancouver, BC, Canada</option>
+                                <option value="America/Edmonton|MOD_WORLDCLOCKS_CITY_EDMONTON">Edmonton, AB, Canada</option>
+                                <option value="America/Winnipeg|MOD_WORLDCLOCKS_CITY_WINNIPEG">Winnipeg, MB, Canada</option>
+                                <option value="America/Toronto|MOD_WORLDCLOCKS_CITY_TORONTO">Toronto, ON, Canada</option>
+                                <option value="America/Montreal|MOD_WORLDCLOCKS_CITY_MONTREAL">Montreal, QC, Canada</option>
+                                <option value="America/Halifax|MOD_WORLDCLOCKS_CITY_HALIFAX">Halifax, NS, Canada</option>
+                                <option value="America/St_Johns|MOD_WORLDCLOCKS_CITY_ST_JOHNS">St. John's, NL, Canada</option>
+                                <!-- Australian States -->
+                                <option value="Australia/Sydney|MOD_WORLDCLOCKS_CITY_SYDNEY">Sydney, NSW, Australia</option>
+                                <option value="Australia/Melbourne|MOD_WORLDCLOCKS_CITY_MELBOURNE">Melbourne, VIC, Australia</option>
+                                <option value="Australia/Brisbane|MOD_WORLDCLOCKS_CITY_BRISBANE">Brisbane, QLD, Australia</option>
+                                <option value="Australia/Perth|MOD_WORLDCLOCKS_CITY_PERTH">Perth, WA, Australia</option>
+                                <option value="Australia/Adelaide|MOD_WORLDCLOCKS_CITY_ADELAIDE">Adelaide, SA, Australia</option>
+                                <option value="Australia/Darwin|MOD_WORLDCLOCKS_CITY_DARWIN">Darwin, NT, Australia</option>
+                                <option value="Australia/Hobart|MOD_WORLDCLOCKS_CITY_HOBART">Hobart, TAS, Australia</option>
+                                <!-- UK Regions -->
+                                <option value="Europe/London|MOD_WORLDCLOCKS_CITY_LONDON">London, England</option>
+                                <option value="Europe/London|MOD_WORLDCLOCKS_CITY_EDINBURGH">Edinburgh, Scotland</option>
+                                <option value="Europe/London|MOD_WORLDCLOCKS_CITY_CARDIFF">Cardiff, Wales</option>
+                                <option value="Europe/London|MOD_WORLDCLOCKS_CITY_BELFAST">Belfast, N. Ireland</option>
+                                <!-- German Cities -->
+                                <option value="Europe/Berlin|MOD_WORLDCLOCKS_CITY_MUNICH">Munich, Germany</option>
+                                <option value="Europe/Berlin|MOD_WORLDCLOCKS_CITY_HAMBURG">Hamburg, Germany</option>
+                                <option value="Europe/Berlin|MOD_WORLDCLOCKS_CITY_FRANKFURT">Frankfurt, Germany</option>
+                                <!-- Indian Cities -->
+                                <option value="Asia/Kolkata|MOD_WORLDCLOCKS_CITY_MUMBAI">Mumbai, India</option>
+                                <option value="Asia/Kolkata|MOD_WORLDCLOCKS_CITY_BANGALORE">Bangalore, India</option>
+                                <option value="Asia/Kolkata|MOD_WORLDCLOCKS_CITY_CHENNAI">Chennai, India</option>
+                                <option value="Asia/Kolkata|MOD_WORLDCLOCKS_CITY_KOLKATA">Kolkata, India</option>
+                                <!-- Chinese Cities -->
+                                <option value="Asia/Shanghai|MOD_WORLDCLOCKS_CITY_SHANGHAI">Shanghai, China</option>
+                                <option value="Asia/Shanghai|MOD_WORLDCLOCKS_CITY_GUANGZHOU">Guangzhou, China</option>
+                                <option value="Asia/Shanghai|MOD_WORLDCLOCKS_CITY_SHENZHEN">Shenzhen, China</option>
+                                <!-- Japanese Prefectures -->
+                                <option value="Asia/Tokyo|MOD_WORLDCLOCKS_CITY_OSAKA">Osaka, Japan</option>
+                                <option value="Asia/Tokyo|MOD_WORLDCLOCKS_CITY_KYOTO">Kyoto, Japan</option>
+                                <!-- Brazilian States -->
+                                <option value="America/Sao_Paulo|MOD_WORLDCLOCKS_CITY_SAO_PAULO">Sao Paulo, Brazil</option>
+                                <option value="America/Sao_Paulo|MOD_WORLDCLOCKS_CITY_RIO">Rio de Janeiro, Brazil</option>
+                                <!-- Russian Cities -->
+                                <option value="Europe/Moscow|MOD_WORLDCLOCKS_CITY_ST_PETERSBURG">St. Petersburg, Russia</option>
+                                <option value="Asia/Vladivostok|MOD_WORLDCLOCKS_CITY_VLADIVOSTOK">Vladivostok, Russia</option>
+                                <!-- Mexican States -->
+                                <option value="America/Tijuana|MOD_WORLDCLOCKS_CITY_TIJUANA">Tijuana, Mexico</option>
+                                <option value="America/Cancun|MOD_WORLDCLOCKS_CITY_CANCUN">Cancun, Mexico</option>
+                            </group>
                         </field>
-                    </form>
-                </field>
 
-                <field
-                    name="clock_order"
-                    type="subform"
-                    label="MOD_WORLDCLOCKS_FIELD_CLOCK_ORDER_LABEL"
-                    description="MOD_WORLDCLOCKS_FIELD_CLOCK_ORDER_DESC"
-                    multiple="true"
-                    layout="joomla.form.field.subform.repeatable"
-                    buttons="add,remove,move"
-                    max="50"
-                >
-                    <form>
                         <field
-                            name="timezone"
+                            name="custom_timezone"
                             type="list"
                             label="MOD_WORLDCLOCKS_FIELD_TIMEZONE_LABEL"
-                            description="MOD_WORLDCLOCKS_FIELD_TIMEZONE_DESC"
-                            required="true"
                             layout="joomla.form.field.list-fancy-select"
+                            showon="location_type:custom"
                         >
                             <!-- Africa -->
                             <option value="Africa/Abidjan">Africa/Abidjan (GMT+0)</option>
@@ -403,27 +380,16 @@
                             <option value="Pacific/Honolulu">Pacific/Honolulu (GMT-10)</option>
                             <option value="Pacific/Guam">Pacific/Guam (GMT+10)</option>
                         </field>
+
                         <field
-                            name="label"
+                            name="custom_label"
                             type="text"
                             label="MOD_WORLDCLOCKS_FIELD_CUSTOM_LABEL_LABEL"
                             description="MOD_WORLDCLOCKS_FIELD_CUSTOM_LABEL_DESC"
                             hint="e.g. New York Office, London HQ"
-                            required="true"
+                            showon="location_type:custom"
                         />
                     </form>
-                </field>
-
-                <field
-                    name="use_custom_order"
-                    type="radio"
-                    label="MOD_WORLDCLOCKS_FIELD_USE_CUSTOM_ORDER_LABEL"
-                    description="MOD_WORLDCLOCKS_FIELD_USE_CUSTOM_ORDER_DESC"
-                    default="0"
-                    class="btn-group btn-group-yesno"
-                >
-                    <option value="1">JYES</option>
-                    <option value="0">JNO</option>
                 </field>
             </fieldset>
 

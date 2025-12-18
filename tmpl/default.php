@@ -18,9 +18,10 @@ use Joomla\CMS\Language\Text;
 /** @var bool $showSeconds */
 /** @var bool $showDate */
 /** @var int $moduleId */
+/** @var bool $showLocalTime */
 
-// Don't render if no clocks selected
-if (empty($clocks)) {
+// Don't render if no clocks selected and local time is not enabled
+if (empty($clocks) && empty($showLocalTime)) {
     return;
 }
 

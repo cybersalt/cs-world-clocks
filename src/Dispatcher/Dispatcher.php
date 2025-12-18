@@ -58,7 +58,7 @@ class Dispatcher extends AbstractModuleDispatcher
     }
 
     /**
-     * Build the list of clocks from all sources
+     * Build the list of clocks from unified clocks field
      *
      * @param   object  $params  Module parameters
      *
@@ -67,32 +67,16 @@ class Dispatcher extends AbstractModuleDispatcher
     protected function buildClockList($params): array
     {
         $clocks = [];
-        $useCustomOnly = (bool) $params->get('use_custom_order', 0);
+        $clocksData = $params->get('clocks', []);
 
-        if ($useCustomOnly) {
-            // Only use custom clocks from subform
-            $customClocks = $params->get('clock_order', []);
+        if (!empty($clocksData)) {
+            foreach ($clocksData as $clock) {
+                $locationType = $clock->location_type ?? 'preset';
 
-            if (!empty($customClocks)) {
-                foreach ($customClocks as $clock) {
-                    if (!empty($clock->timezone) && !empty($clock->label)) {
-                        $clocks[] = [
-                            'timezone' => $clock->timezone,
-                            'name' => $clock->label,
-                            'nameKey' => ''
-                        ];
-                    }
-                }
-            }
-        } else {
-            // Add selected capitals from subform (ordered)
-            $capitals = $params->get('capitals', []);
-
-            if (!empty($capitals)) {
-                foreach ($capitals as $capital) {
-                    if (!empty($capital->city)) {
-                        // Value format: timezone|langKey
-                        $parts = explode('|', $capital->city, 2);
+                if ($locationType === 'preset') {
+                    // Preset location: value format is timezone|langKey
+                    if (!empty($clock->preset_location)) {
+                        $parts = explode('|', $clock->preset_location, 2);
                         if (count($parts) === 2) {
                             $clocks[] = [
                                 'timezone' => $parts[0],
@@ -101,37 +85,12 @@ class Dispatcher extends AbstractModuleDispatcher
                             ];
                         }
                     }
-                }
-            }
-
-            // Add selected regional cities from subform (ordered)
-            $regionalCities = $params->get('regional_cities', []);
-
-            if (!empty($regionalCities)) {
-                foreach ($regionalCities as $city) {
-                    if (!empty($city->city)) {
-                        // Value format: timezone|langKey
-                        $parts = explode('|', $city->city, 2);
-                        if (count($parts) === 2) {
-                            $clocks[] = [
-                                'timezone' => $parts[0],
-                                'name' => Text::_($parts[1]),
-                                'nameKey' => $parts[1]
-                            ];
-                        }
-                    }
-                }
-            }
-
-            // Add custom clocks from subform
-            $customClocks = $params->get('clock_order', []);
-
-            if (!empty($customClocks)) {
-                foreach ($customClocks as $clock) {
-                    if (!empty($clock->timezone) && !empty($clock->label)) {
+                } else {
+                    // Custom location: separate timezone and label fields
+                    if (!empty($clock->custom_timezone) && !empty($clock->custom_label)) {
                         $clocks[] = [
-                            'timezone' => $clock->timezone,
-                            'name' => $clock->label,
+                            'timezone' => $clock->custom_timezone,
+                            'name' => $clock->custom_label,
                             'nameKey' => ''
                         ];
                     }
