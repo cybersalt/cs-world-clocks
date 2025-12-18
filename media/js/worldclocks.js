@@ -31,8 +31,150 @@
          * Initialize the clocks
          */
         init() {
+            // Add local time clock if enabled
+            if (this.config.showLocalTime) {
+                this.addLocalTimeClock();
+            }
+
             this.updateAllClocks();
             this.startInterval();
+        }
+
+        /**
+         * Get the visitor's local timezone
+         * @returns {string}
+         */
+        getLocalTimezone() {
+            try {
+                return Intl.DateTimeFormat().resolvedOptions().timeZone;
+            } catch (e) {
+                return 'UTC';
+            }
+        }
+
+        /**
+         * Get a friendly timezone name from the IANA timezone
+         * @param {string} timezone - IANA timezone identifier
+         * @returns {string}
+         */
+        getTimezoneFriendlyName(timezone) {
+            // Extract city name from timezone (e.g., "America/New_York" -> "New York")
+            const parts = timezone.split('/');
+            const city = parts[parts.length - 1].replace(/_/g, ' ');
+            return city;
+        }
+
+        /**
+         * Add local time clock element dynamically
+         */
+        addLocalTimeClock() {
+            const localTimezone = this.getLocalTimezone();
+            const label = this.config.localTimeLabel || this.getTimezoneFriendlyName(localTimezone);
+
+            // Create the clock element based on display style
+            const clockEl = this.createClockElement(localTimezone, label, true);
+
+            // Find where to insert it
+            const clocksContainer = this.container.querySelector('.worldclocks');
+            if (!clocksContainer) return;
+
+            if (this.config.localTimePosition === 'first') {
+                clocksContainer.insertBefore(clockEl, clocksContainer.firstChild);
+            } else {
+                clocksContainer.appendChild(clockEl);
+            }
+        }
+
+        /**
+         * Create a clock HTML element
+         * @param {string} timezone - Timezone identifier
+         * @param {string} name - Display name
+         * @param {boolean} isLocal - Whether this is the local time clock
+         * @returns {HTMLElement}
+         */
+        createClockElement(timezone, name, isLocal = false) {
+            const div = document.createElement('div');
+            div.className = 'worldclock' + (isLocal ? ' worldclock--local' : '');
+            div.dataset.timezone = timezone;
+
+            if (this.config.displayStyle === 'analog') {
+                div.innerHTML = this.getAnalogClockHTML(name);
+            } else {
+                div.innerHTML = this.getDigitalClockHTML(name);
+            }
+
+            return div;
+        }
+
+        /**
+         * Get HTML for digital/text style clock
+         * @param {string} name - Clock label
+         * @returns {string}
+         */
+        getDigitalClockHTML(name) {
+            let html = '<div class="worldclock__name">' + this.escapeHtml(name) + '</div>';
+            html += '<div class="worldclock__time">';
+            html += '<span class="worldclock__hours">--</span>';
+            html += '<span class="worldclock__separator">:</span>';
+            html += '<span class="worldclock__minutes">--</span>';
+
+            if (this.config.showSeconds) {
+                html += '<span class="worldclock__separator">:</span>';
+                html += '<span class="worldclock__seconds">--</span>';
+            }
+
+            if (this.config.timeFormat === '12') {
+                html += '<span class="worldclock__period"></span>';
+            }
+
+            html += '</div>';
+
+            if (this.config.showDate) {
+                html += '<div class="worldclock__date"></div>';
+            }
+
+            return html;
+        }
+
+        /**
+         * Get HTML for analog style clock
+         * @param {string} name - Clock label
+         * @returns {string}
+         */
+        getAnalogClockHTML(name) {
+            let html = '<div class="worldclock__analog">';
+            html += '<div class="worldclock__face">';
+            html += '<span class="worldclock__number worldclock__number--12">12</span>';
+            html += '<span class="worldclock__number worldclock__number--3">3</span>';
+            html += '<span class="worldclock__number worldclock__number--6">6</span>';
+            html += '<span class="worldclock__number worldclock__number--9">9</span>';
+            html += '<div class="worldclock__hand worldclock__hand--hour"></div>';
+            html += '<div class="worldclock__hand worldclock__hand--minute"></div>';
+
+            if (this.config.showSeconds) {
+                html += '<div class="worldclock__hand worldclock__hand--second"></div>';
+            }
+
+            html += '<div class="worldclock__center"></div>';
+            html += '</div></div>';
+            html += '<div class="worldclock__name">' + this.escapeHtml(name) + '</div>';
+
+            if (this.config.showDate) {
+                html += '<div class="worldclock__date"></div>';
+            }
+
+            return html;
+        }
+
+        /**
+         * Escape HTML special characters
+         * @param {string} str - String to escape
+         * @returns {string}
+         */
+        escapeHtml(str) {
+            const div = document.createElement('div');
+            div.textContent = str;
+            return div.innerHTML;
         }
 
         /**

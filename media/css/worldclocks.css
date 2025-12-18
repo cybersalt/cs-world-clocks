@@ -51,8 +51,10 @@
 }
 
 .mod-worldclocks--text .worldclock {
-    flex-direction: row;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    align-items: center;
+    gap: 1rem;
     padding: 0.5rem 0;
     border-bottom: 1px solid var(--wc-border);
 }
@@ -63,18 +65,21 @@
 
 .mod-worldclocks--text .worldclock__name {
     margin-top: 0;
-    margin-right: 1rem;
-    order: -1;
-}
-
-.mod-worldclocks--text .worldclock__time {
-    font-family: inherit;
-    font-size: 1rem;
+    order: 0;
+    text-align: left;
 }
 
 .mod-worldclocks--text .worldclock__date {
+    order: 1;
     margin-top: 0;
-    margin-left: 1rem;
+    white-space: nowrap;
+}
+
+.mod-worldclocks--text .worldclock__time {
+    order: 2;
+    font-family: inherit;
+    font-size: 1rem;
+    white-space: nowrap;
 }
 
 /* ==================== */
@@ -181,26 +186,30 @@
     font-weight: bold;
     color: var(--wc-text);
     text-align: center;
-    width: 20px;
-    height: 20px;
-    line-height: 20px;
-    margin-left: -10px;
-    margin-top: -10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.5em;
+    height: 1.5em;
+    transform: translate(-50%, -50%);
 }
 
-/* Position numbers around the clock face */
-.worldclock__number--12 { top: 8px; left: 50%; }
-.worldclock__number--1 { top: 13px; left: 73%; }
-.worldclock__number--2 { top: 27px; left: 87%; }
-.worldclock__number--3 { top: 50%; left: 92%; }
-.worldclock__number--4 { top: 73%; left: 87%; }
-.worldclock__number--5 { top: 87%; left: 73%; }
-.worldclock__number--6 { top: 92%; left: 50%; }
-.worldclock__number--7 { top: 87%; left: 27%; }
-.worldclock__number--8 { top: 73%; left: 13%; }
-.worldclock__number--9 { top: 50%; left: 8%; }
-.worldclock__number--10 { top: 27%; left: 13%; }
-.worldclock__number--11 { top: 13%; left: 27%; }
+/* Position numbers around the clock face - trigonometrically calculated for perfect circle
+   Using radius of 40% from center (50%, 50%)
+   Angle = (hour * 30) - 90 degrees, where 12 o'clock is at -90° (top)
+   x = 50 + 40 * cos(angle), y = 50 + 40 * sin(angle) */
+.worldclock__number--12 { top: 10%; left: 50%; }
+.worldclock__number--1 { top: 15.4%; left: 70%; }
+.worldclock__number--2 { top: 30%; left: 84.6%; }
+.worldclock__number--3 { top: 50%; left: 90%; }
+.worldclock__number--4 { top: 70%; left: 84.6%; }
+.worldclock__number--5 { top: 84.6%; left: 70%; }
+.worldclock__number--6 { top: 90%; left: 50%; }
+.worldclock__number--7 { top: 84.6%; left: 30%; }
+.worldclock__number--8 { top: 70%; left: 15.4%; }
+.worldclock__number--9 { top: 50%; left: 10%; }
+.worldclock__number--10 { top: 30%; left: 15.4%; }
+.worldclock__number--11 { top: 15.4%; left: 30%; }
 
 /* ==================== */
 /* RESPONSIVE           */

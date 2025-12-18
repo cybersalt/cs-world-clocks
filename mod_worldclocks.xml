@@ -7,7 +7,7 @@
     <license>GNU General Public License version 2 or later</license>
     <authorEmail>info@cybersalt.org</authorEmail>
     <authorUrl>https://cybersalt.org</authorUrl>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
     <description>MOD_WORLDCLOCKS_DESC</description>
     <namespace path="src">Cybersalt\Module\WorldClocks</namespace>
 
@@ -31,81 +31,6 @@
     <config>
         <fields name="params">
             <fieldset name="basic">
-                <field
-                    name="capitals"
-                    type="list"
-                    label="MOD_WORLDCLOCKS_FIELD_CAPITALS_LABEL"
-                    description="MOD_WORLDCLOCKS_FIELD_CAPITALS_DESC"
-                    multiple="true"
-                    layout="joomla.form.field.list-fancy-select"
-                    default=""
-                >
-                    <option value="Europe/London">MOD_WORLDCLOCKS_CAPITAL_LONDON</option>
-                    <option value="Europe/Paris">MOD_WORLDCLOCKS_CAPITAL_PARIS</option>
-                    <option value="Europe/Berlin">MOD_WORLDCLOCKS_CAPITAL_BERLIN</option>
-                    <option value="Europe/Rome">MOD_WORLDCLOCKS_CAPITAL_ROME</option>
-                    <option value="Europe/Madrid">MOD_WORLDCLOCKS_CAPITAL_MADRID</option>
-                    <option value="Europe/Amsterdam">MOD_WORLDCLOCKS_CAPITAL_AMSTERDAM</option>
-                    <option value="Europe/Brussels">MOD_WORLDCLOCKS_CAPITAL_BRUSSELS</option>
-                    <option value="Europe/Vienna">MOD_WORLDCLOCKS_CAPITAL_VIENNA</option>
-                    <option value="Europe/Stockholm">MOD_WORLDCLOCKS_CAPITAL_STOCKHOLM</option>
-                    <option value="Europe/Oslo">MOD_WORLDCLOCKS_CAPITAL_OSLO</option>
-                    <option value="Europe/Copenhagen">MOD_WORLDCLOCKS_CAPITAL_COPENHAGEN</option>
-                    <option value="Europe/Helsinki">MOD_WORLDCLOCKS_CAPITAL_HELSINKI</option>
-                    <option value="Europe/Warsaw">MOD_WORLDCLOCKS_CAPITAL_WARSAW</option>
-                    <option value="Europe/Prague">MOD_WORLDCLOCKS_CAPITAL_PRAGUE</option>
-                    <option value="Europe/Budapest">MOD_WORLDCLOCKS_CAPITAL_BUDAPEST</option>
-                    <option value="Europe/Athens">MOD_WORLDCLOCKS_CAPITAL_ATHENS</option>
-                    <option value="Europe/Lisbon">MOD_WORLDCLOCKS_CAPITAL_LISBON</option>
-                    <option value="Europe/Dublin">MOD_WORLDCLOCKS_CAPITAL_DUBLIN</option>
-                    <option value="Europe/Zurich">MOD_WORLDCLOCKS_CAPITAL_BERN</option>
-                    <option value="Europe/Moscow">MOD_WORLDCLOCKS_CAPITAL_MOSCOW</option>
-                    <option value="Europe/Kiev">MOD_WORLDCLOCKS_CAPITAL_KYIV</option>
-                    <option value="America/New_York">MOD_WORLDCLOCKS_CAPITAL_WASHINGTON</option>
-                    <option value="America/Toronto">MOD_WORLDCLOCKS_CAPITAL_OTTAWA</option>
-                    <option value="America/Mexico_City">MOD_WORLDCLOCKS_CAPITAL_MEXICO_CITY</option>
-                    <option value="America/Havana">MOD_WORLDCLOCKS_CAPITAL_HAVANA</option>
-                    <option value="America/Panama">MOD_WORLDCLOCKS_CAPITAL_PANAMA_CITY</option>
-                    <option value="America/Bogota">MOD_WORLDCLOCKS_CAPITAL_BOGOTA</option>
-                    <option value="America/Lima">MOD_WORLDCLOCKS_CAPITAL_LIMA</option>
-                    <option value="America/Santiago">MOD_WORLDCLOCKS_CAPITAL_SANTIAGO</option>
-                    <option value="America/Sao_Paulo">MOD_WORLDCLOCKS_CAPITAL_BRASILIA</option>
-                    <option value="America/Argentina/Buenos_Aires">MOD_WORLDCLOCKS_CAPITAL_BUENOS_AIRES</option>
-                    <option value="America/Caracas">MOD_WORLDCLOCKS_CAPITAL_CARACAS</option>
-                    <option value="Asia/Tokyo">MOD_WORLDCLOCKS_CAPITAL_TOKYO</option>
-                    <option value="Asia/Seoul">MOD_WORLDCLOCKS_CAPITAL_SEOUL</option>
-                    <option value="Asia/Shanghai">MOD_WORLDCLOCKS_CAPITAL_BEIJING</option>
-                    <option value="Asia/Hong_Kong">MOD_WORLDCLOCKS_CAPITAL_HONG_KONG</option>
-                    <option value="Asia/Taipei">MOD_WORLDCLOCKS_CAPITAL_TAIPEI</option>
-                    <option value="Asia/Singapore">MOD_WORLDCLOCKS_CAPITAL_SINGAPORE</option>
-                    <option value="Asia/Bangkok">MOD_WORLDCLOCKS_CAPITAL_BANGKOK</option>
-                    <option value="Asia/Jakarta">MOD_WORLDCLOCKS_CAPITAL_JAKARTA</option>
-                    <option value="Asia/Manila">MOD_WORLDCLOCKS_CAPITAL_MANILA</option>
-                    <option value="Asia/Kuala_Lumpur">MOD_WORLDCLOCKS_CAPITAL_KUALA_LUMPUR</option>
-                    <option value="Asia/Ho_Chi_Minh">MOD_WORLDCLOCKS_CAPITAL_HANOI</option>
-                    <option value="Asia/Kolkata">MOD_WORLDCLOCKS_CAPITAL_NEW_DELHI</option>
-                    <option value="Asia/Dhaka">MOD_WORLDCLOCKS_CAPITAL_DHAKA</option>
-                    <option value="Asia/Karachi">MOD_WORLDCLOCKS_CAPITAL_ISLAMABAD</option>
-                    <option value="Asia/Kabul">MOD_WORLDCLOCKS_CAPITAL_KABUL</option>
-                    <option value="Asia/Tehran">MOD_WORLDCLOCKS_CAPITAL_TEHRAN</option>
-                    <option value="Asia/Baghdad">MOD_WORLDCLOCKS_CAPITAL_BAGHDAD</option>
-                    <option value="Asia/Riyadh">MOD_WORLDCLOCKS_CAPITAL_RIYADH</option>
-                    <option value="Asia/Dubai">MOD_WORLDCLOCKS_CAPITAL_ABU_DHABI</option>
-                    <option value="Asia/Jerusalem">MOD_WORLDCLOCKS_CAPITAL_JERUSALEM</option>
-                    <option value="Asia/Beirut">MOD_WORLDCLOCKS_CAPITAL_BEIRUT</option>
-                    <option value="Asia/Amman">MOD_WORLDCLOCKS_CAPITAL_AMMAN</option>
-                    <option value="Africa/Cairo">MOD_WORLDCLOCKS_CAPITAL_CAIRO</option>
-                    <option value="Africa/Johannesburg">MOD_WORLDCLOCKS_CAPITAL_PRETORIA</option>
-                    <option value="Africa/Lagos">MOD_WORLDCLOCKS_CAPITAL_ABUJA</option>
-                    <option value="Africa/Nairobi">MOD_WORLDCLOCKS_CAPITAL_NAIROBI</option>
-                    <option value="Africa/Casablanca">MOD_WORLDCLOCKS_CAPITAL_RABAT</option>
-                    <option value="Africa/Tunis">MOD_WORLDCLOCKS_CAPITAL_TUNIS</option>
-                    <option value="Africa/Algiers">MOD_WORLDCLOCKS_CAPITAL_ALGIERS</option>
-                    <option value="Australia/Sydney">MOD_WORLDCLOCKS_CAPITAL_CANBERRA</option>
-                    <option value="Pacific/Auckland">MOD_WORLDCLOCKS_CAPITAL_WELLINGTON</option>
-                    <option value="Pacific/Fiji">MOD_WORLDCLOCKS_CAPITAL_SUVA</option>
-                </field>
-
                 <field
                     name="display_style"
                     type="list"
@@ -154,6 +79,727 @@
                 </field>
             </fieldset>
 
+            <fieldset name="locations" label="MOD_WORLDCLOCKS_FIELDSET_LOCATIONS">
+                <field
+                    name="show_local_time"
+                    type="radio"
+                    label="MOD_WORLDCLOCKS_FIELD_SHOW_LOCAL_TIME_LABEL"
+                    description="MOD_WORLDCLOCKS_FIELD_SHOW_LOCAL_TIME_DESC"
+                    default="0"
+                    class="btn-group btn-group-yesno"
+                >
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+
+                <field
+                    name="local_time_position"
+                    type="list"
+                    label="MOD_WORLDCLOCKS_FIELD_LOCAL_TIME_POSITION_LABEL"
+                    description="MOD_WORLDCLOCKS_FIELD_LOCAL_TIME_POSITION_DESC"
+                    default="first"
+                    showon="show_local_time:1"
+                >
+                    <option value="first">MOD_WORLDCLOCKS_LOCAL_TIME_POSITION_FIRST</option>
+                    <option value="last">MOD_WORLDCLOCKS_LOCAL_TIME_POSITION_LAST</option>
+                </field>
+
+                <field
+                    name="local_time_label"
+                    type="text"
+                    label="MOD_WORLDCLOCKS_FIELD_LOCAL_TIME_LABEL_LABEL"
+                    description="MOD_WORLDCLOCKS_FIELD_LOCAL_TIME_LABEL_DESC"
+                    default=""
+                    hint="e.g. Your Local Time, My Time"
+                    showon="show_local_time:1"
+                />
+
+                <field
+                    name="capitals"
+                    type="subform"
+                    label="MOD_WORLDCLOCKS_FIELD_CAPITALS_LABEL"
+                    description="MOD_WORLDCLOCKS_FIELD_CAPITALS_DESC"
+                    multiple="true"
+                    layout="joomla.form.field.subform.repeatable"
+                    buttons="add,remove,move"
+                    max="60"
+                >
+                    <form>
+                        <field
+                            name="city"
+                            type="list"
+                            label="MOD_WORLDCLOCKS_FIELD_CAPITAL_CITY_LABEL"
+                            required="true"
+                            layout="joomla.form.field.list-fancy-select"
+                        >
+                            <!-- National Capitals - Europe -->
+                            <option value="Europe/London|MOD_WORLDCLOCKS_CAPITAL_LONDON">London, UK</option>
+                            <option value="Europe/Paris|MOD_WORLDCLOCKS_CAPITAL_PARIS">Paris, France</option>
+                            <option value="Europe/Berlin|MOD_WORLDCLOCKS_CAPITAL_BERLIN">Berlin, Germany</option>
+                            <option value="Europe/Rome|MOD_WORLDCLOCKS_CAPITAL_ROME">Rome, Italy</option>
+                            <option value="Europe/Madrid|MOD_WORLDCLOCKS_CAPITAL_MADRID">Madrid, Spain</option>
+                            <option value="Europe/Amsterdam|MOD_WORLDCLOCKS_CAPITAL_AMSTERDAM">Amsterdam, Netherlands</option>
+                            <option value="Europe/Brussels|MOD_WORLDCLOCKS_CAPITAL_BRUSSELS">Brussels, Belgium</option>
+                            <option value="Europe/Vienna|MOD_WORLDCLOCKS_CAPITAL_VIENNA">Vienna, Austria</option>
+                            <option value="Europe/Stockholm|MOD_WORLDCLOCKS_CAPITAL_STOCKHOLM">Stockholm, Sweden</option>
+                            <option value="Europe/Oslo|MOD_WORLDCLOCKS_CAPITAL_OSLO">Oslo, Norway</option>
+                            <option value="Europe/Copenhagen|MOD_WORLDCLOCKS_CAPITAL_COPENHAGEN">Copenhagen, Denmark</option>
+                            <option value="Europe/Helsinki|MOD_WORLDCLOCKS_CAPITAL_HELSINKI">Helsinki, Finland</option>
+                            <option value="Europe/Warsaw|MOD_WORLDCLOCKS_CAPITAL_WARSAW">Warsaw, Poland</option>
+                            <option value="Europe/Prague|MOD_WORLDCLOCKS_CAPITAL_PRAGUE">Prague, Czech Republic</option>
+                            <option value="Europe/Budapest|MOD_WORLDCLOCKS_CAPITAL_BUDAPEST">Budapest, Hungary</option>
+                            <option value="Europe/Athens|MOD_WORLDCLOCKS_CAPITAL_ATHENS">Athens, Greece</option>
+                            <option value="Europe/Lisbon|MOD_WORLDCLOCKS_CAPITAL_LISBON">Lisbon, Portugal</option>
+                            <option value="Europe/Dublin|MOD_WORLDCLOCKS_CAPITAL_DUBLIN">Dublin, Ireland</option>
+                            <option value="Europe/Zurich|MOD_WORLDCLOCKS_CAPITAL_BERN">Bern, Switzerland</option>
+                            <option value="Europe/Moscow|MOD_WORLDCLOCKS_CAPITAL_MOSCOW">Moscow, Russia</option>
+                            <option value="Europe/Kiev|MOD_WORLDCLOCKS_CAPITAL_KYIV">Kyiv, Ukraine</option>
+                            <!-- National Capitals - North America -->
+                            <option value="America/New_York|MOD_WORLDCLOCKS_CAPITAL_WASHINGTON">Washington D.C., USA</option>
+                            <option value="America/Toronto|MOD_WORLDCLOCKS_CAPITAL_OTTAWA">Ottawa, Canada</option>
+                            <option value="America/Mexico_City|MOD_WORLDCLOCKS_CAPITAL_MEXICO_CITY">Mexico City, Mexico</option>
+                            <option value="America/Havana|MOD_WORLDCLOCKS_CAPITAL_HAVANA">Havana, Cuba</option>
+                            <option value="America/Panama|MOD_WORLDCLOCKS_CAPITAL_PANAMA_CITY">Panama City, Panama</option>
+                            <!-- National Capitals - South America -->
+                            <option value="America/Bogota|MOD_WORLDCLOCKS_CAPITAL_BOGOTA">Bogota, Colombia</option>
+                            <option value="America/Lima|MOD_WORLDCLOCKS_CAPITAL_LIMA">Lima, Peru</option>
+                            <option value="America/Santiago|MOD_WORLDCLOCKS_CAPITAL_SANTIAGO">Santiago, Chile</option>
+                            <option value="America/Sao_Paulo|MOD_WORLDCLOCKS_CAPITAL_BRASILIA">Brasilia, Brazil</option>
+                            <option value="America/Argentina/Buenos_Aires|MOD_WORLDCLOCKS_CAPITAL_BUENOS_AIRES">Buenos Aires, Argentina</option>
+                            <option value="America/Caracas|MOD_WORLDCLOCKS_CAPITAL_CARACAS">Caracas, Venezuela</option>
+                            <!-- National Capitals - Asia -->
+                            <option value="Asia/Tokyo|MOD_WORLDCLOCKS_CAPITAL_TOKYO">Tokyo, Japan</option>
+                            <option value="Asia/Seoul|MOD_WORLDCLOCKS_CAPITAL_SEOUL">Seoul, South Korea</option>
+                            <option value="Asia/Shanghai|MOD_WORLDCLOCKS_CAPITAL_BEIJING">Beijing, China</option>
+                            <option value="Asia/Hong_Kong|MOD_WORLDCLOCKS_CAPITAL_HONG_KONG">Hong Kong</option>
+                            <option value="Asia/Taipei|MOD_WORLDCLOCKS_CAPITAL_TAIPEI">Taipei, Taiwan</option>
+                            <option value="Asia/Singapore|MOD_WORLDCLOCKS_CAPITAL_SINGAPORE">Singapore</option>
+                            <option value="Asia/Bangkok|MOD_WORLDCLOCKS_CAPITAL_BANGKOK">Bangkok, Thailand</option>
+                            <option value="Asia/Jakarta|MOD_WORLDCLOCKS_CAPITAL_JAKARTA">Jakarta, Indonesia</option>
+                            <option value="Asia/Manila|MOD_WORLDCLOCKS_CAPITAL_MANILA">Manila, Philippines</option>
+                            <option value="Asia/Kuala_Lumpur|MOD_WORLDCLOCKS_CAPITAL_KUALA_LUMPUR">Kuala Lumpur, Malaysia</option>
+                            <option value="Asia/Ho_Chi_Minh|MOD_WORLDCLOCKS_CAPITAL_HANOI">Hanoi, Vietnam</option>
+                            <option value="Asia/Kolkata|MOD_WORLDCLOCKS_CAPITAL_NEW_DELHI">New Delhi, India</option>
+                            <option value="Asia/Dhaka|MOD_WORLDCLOCKS_CAPITAL_DHAKA">Dhaka, Bangladesh</option>
+                            <option value="Asia/Karachi|MOD_WORLDCLOCKS_CAPITAL_ISLAMABAD">Islamabad, Pakistan</option>
+                            <option value="Asia/Kabul|MOD_WORLDCLOCKS_CAPITAL_KABUL">Kabul, Afghanistan</option>
+                            <option value="Asia/Tehran|MOD_WORLDCLOCKS_CAPITAL_TEHRAN">Tehran, Iran</option>
+                            <option value="Asia/Baghdad|MOD_WORLDCLOCKS_CAPITAL_BAGHDAD">Baghdad, Iraq</option>
+                            <option value="Asia/Riyadh|MOD_WORLDCLOCKS_CAPITAL_RIYADH">Riyadh, Saudi Arabia</option>
+                            <option value="Asia/Dubai|MOD_WORLDCLOCKS_CAPITAL_ABU_DHABI">Abu Dhabi, UAE</option>
+                            <option value="Asia/Jerusalem|MOD_WORLDCLOCKS_CAPITAL_JERUSALEM">Jerusalem, Israel</option>
+                            <option value="Asia/Beirut|MOD_WORLDCLOCKS_CAPITAL_BEIRUT">Beirut, Lebanon</option>
+                            <option value="Asia/Amman|MOD_WORLDCLOCKS_CAPITAL_AMMAN">Amman, Jordan</option>
+                            <!-- National Capitals - Africa -->
+                            <option value="Africa/Cairo|MOD_WORLDCLOCKS_CAPITAL_CAIRO">Cairo, Egypt</option>
+                            <option value="Africa/Johannesburg|MOD_WORLDCLOCKS_CAPITAL_PRETORIA">Pretoria, South Africa</option>
+                            <option value="Africa/Lagos|MOD_WORLDCLOCKS_CAPITAL_ABUJA">Abuja, Nigeria</option>
+                            <option value="Africa/Nairobi|MOD_WORLDCLOCKS_CAPITAL_NAIROBI">Nairobi, Kenya</option>
+                            <option value="Africa/Casablanca|MOD_WORLDCLOCKS_CAPITAL_RABAT">Rabat, Morocco</option>
+                            <option value="Africa/Tunis|MOD_WORLDCLOCKS_CAPITAL_TUNIS">Tunis, Tunisia</option>
+                            <option value="Africa/Algiers|MOD_WORLDCLOCKS_CAPITAL_ALGIERS">Algiers, Algeria</option>
+                            <!-- National Capitals - Oceania -->
+                            <option value="Australia/Sydney|MOD_WORLDCLOCKS_CAPITAL_CANBERRA">Canberra, Australia</option>
+                            <option value="Pacific/Auckland|MOD_WORLDCLOCKS_CAPITAL_WELLINGTON">Wellington, New Zealand</option>
+                            <option value="Pacific/Fiji|MOD_WORLDCLOCKS_CAPITAL_SUVA">Suva, Fiji</option>
+                        </field>
+                    </form>
+                </field>
+
+                <field
+                    name="regional_cities"
+                    type="subform"
+                    label="MOD_WORLDCLOCKS_FIELD_REGIONAL_CITIES_LABEL"
+                    description="MOD_WORLDCLOCKS_FIELD_REGIONAL_CITIES_DESC"
+                    multiple="true"
+                    layout="joomla.form.field.subform.repeatable"
+                    buttons="add,remove,move"
+                    max="50"
+                >
+                    <form>
+                        <field
+                            name="city"
+                            type="list"
+                            label="MOD_WORLDCLOCKS_FIELD_REGIONAL_CITY_LABEL"
+                            required="true"
+                            layout="joomla.form.field.list-fancy-select"
+                        >
+                            <!-- US States -->
+                            <option value="America/New_York|MOD_WORLDCLOCKS_CITY_NEW_YORK">New York, NY, USA</option>
+                            <option value="America/Los_Angeles|MOD_WORLDCLOCKS_CITY_LOS_ANGELES">Los Angeles, CA, USA</option>
+                            <option value="America/Chicago|MOD_WORLDCLOCKS_CITY_CHICAGO">Chicago, IL, USA</option>
+                            <option value="America/Denver|MOD_WORLDCLOCKS_CITY_DENVER">Denver, CO, USA</option>
+                            <option value="America/Phoenix|MOD_WORLDCLOCKS_CITY_PHOENIX">Phoenix, AZ, USA</option>
+                            <option value="America/Anchorage|MOD_WORLDCLOCKS_CITY_ANCHORAGE">Anchorage, AK, USA</option>
+                            <option value="Pacific/Honolulu|MOD_WORLDCLOCKS_CITY_HONOLULU">Honolulu, HI, USA</option>
+                            <option value="America/Detroit|MOD_WORLDCLOCKS_CITY_DETROIT">Detroit, MI, USA</option>
+                            <option value="America/Indiana/Indianapolis|MOD_WORLDCLOCKS_CITY_INDIANAPOLIS">Indianapolis, IN, USA</option>
+                            <!-- Canadian Provinces -->
+                            <option value="America/Vancouver|MOD_WORLDCLOCKS_CITY_VANCOUVER">Vancouver, BC, Canada</option>
+                            <option value="America/Edmonton|MOD_WORLDCLOCKS_CITY_EDMONTON">Edmonton, AB, Canada</option>
+                            <option value="America/Winnipeg|MOD_WORLDCLOCKS_CITY_WINNIPEG">Winnipeg, MB, Canada</option>
+                            <option value="America/Toronto|MOD_WORLDCLOCKS_CITY_TORONTO">Toronto, ON, Canada</option>
+                            <option value="America/Montreal|MOD_WORLDCLOCKS_CITY_MONTREAL">Montreal, QC, Canada</option>
+                            <option value="America/Halifax|MOD_WORLDCLOCKS_CITY_HALIFAX">Halifax, NS, Canada</option>
+                            <option value="America/St_Johns|MOD_WORLDCLOCKS_CITY_ST_JOHNS">St. John's, NL, Canada</option>
+                            <!-- Australian States -->
+                            <option value="Australia/Sydney|MOD_WORLDCLOCKS_CITY_SYDNEY">Sydney, NSW, Australia</option>
+                            <option value="Australia/Melbourne|MOD_WORLDCLOCKS_CITY_MELBOURNE">Melbourne, VIC, Australia</option>
+                            <option value="Australia/Brisbane|MOD_WORLDCLOCKS_CITY_BRISBANE">Brisbane, QLD, Australia</option>
+                            <option value="Australia/Perth|MOD_WORLDCLOCKS_CITY_PERTH">Perth, WA, Australia</option>
+                            <option value="Australia/Adelaide|MOD_WORLDCLOCKS_CITY_ADELAIDE">Adelaide, SA, Australia</option>
+                            <option value="Australia/Darwin|MOD_WORLDCLOCKS_CITY_DARWIN">Darwin, NT, Australia</option>
+                            <option value="Australia/Hobart|MOD_WORLDCLOCKS_CITY_HOBART">Hobart, TAS, Australia</option>
+                            <!-- UK Regions -->
+                            <option value="Europe/London|MOD_WORLDCLOCKS_CITY_LONDON">London, England</option>
+                            <option value="Europe/London|MOD_WORLDCLOCKS_CITY_EDINBURGH">Edinburgh, Scotland</option>
+                            <option value="Europe/London|MOD_WORLDCLOCKS_CITY_CARDIFF">Cardiff, Wales</option>
+                            <option value="Europe/London|MOD_WORLDCLOCKS_CITY_BELFAST">Belfast, N. Ireland</option>
+                            <!-- German States -->
+                            <option value="Europe/Berlin|MOD_WORLDCLOCKS_CITY_MUNICH">Munich, Germany</option>
+                            <option value="Europe/Berlin|MOD_WORLDCLOCKS_CITY_HAMBURG">Hamburg, Germany</option>
+                            <option value="Europe/Berlin|MOD_WORLDCLOCKS_CITY_FRANKFURT">Frankfurt, Germany</option>
+                            <!-- Indian States -->
+                            <option value="Asia/Kolkata|MOD_WORLDCLOCKS_CITY_MUMBAI">Mumbai, India</option>
+                            <option value="Asia/Kolkata|MOD_WORLDCLOCKS_CITY_BANGALORE">Bangalore, India</option>
+                            <option value="Asia/Kolkata|MOD_WORLDCLOCKS_CITY_CHENNAI">Chennai, India</option>
+                            <option value="Asia/Kolkata|MOD_WORLDCLOCKS_CITY_KOLKATA">Kolkata, India</option>
+                            <!-- Chinese Cities -->
+                            <option value="Asia/Shanghai|MOD_WORLDCLOCKS_CITY_SHANGHAI">Shanghai, China</option>
+                            <option value="Asia/Shanghai|MOD_WORLDCLOCKS_CITY_GUANGZHOU">Guangzhou, China</option>
+                            <option value="Asia/Shanghai|MOD_WORLDCLOCKS_CITY_SHENZHEN">Shenzhen, China</option>
+                            <!-- Brazilian States -->
+                            <option value="America/Sao_Paulo|MOD_WORLDCLOCKS_CITY_SAO_PAULO">Sao Paulo, Brazil</option>
+                            <option value="America/Sao_Paulo|MOD_WORLDCLOCKS_CITY_RIO">Rio de Janeiro, Brazil</option>
+                            <!-- Japanese Cities -->
+                            <option value="Asia/Tokyo|MOD_WORLDCLOCKS_CITY_OSAKA">Osaka, Japan</option>
+                            <option value="Asia/Tokyo|MOD_WORLDCLOCKS_CITY_KYOTO">Kyoto, Japan</option>
+                            <!-- Russian Cities -->
+                            <option value="Europe/Moscow|MOD_WORLDCLOCKS_CITY_ST_PETERSBURG">St. Petersburg, Russia</option>
+                            <option value="Asia/Vladivostok|MOD_WORLDCLOCKS_CITY_VLADIVOSTOK">Vladivostok, Russia</option>
+                            <!-- Mexican States -->
+                            <option value="America/Tijuana|MOD_WORLDCLOCKS_CITY_TIJUANA">Tijuana, Mexico</option>
+                            <option value="America/Cancun|MOD_WORLDCLOCKS_CITY_CANCUN">Cancun, Mexico</option>
+                        </field>
+                    </form>
+                </field>
+
+                <field
+                    name="clock_order"
+                    type="subform"
+                    label="MOD_WORLDCLOCKS_FIELD_CLOCK_ORDER_LABEL"
+                    description="MOD_WORLDCLOCKS_FIELD_CLOCK_ORDER_DESC"
+                    multiple="true"
+                    layout="joomla.form.field.subform.repeatable"
+                    buttons="add,remove,move"
+                    max="50"
+                >
+                    <form>
+                        <field
+                            name="timezone"
+                            type="list"
+                            label="MOD_WORLDCLOCKS_FIELD_TIMEZONE_LABEL"
+                            description="MOD_WORLDCLOCKS_FIELD_TIMEZONE_DESC"
+                            required="true"
+                            layout="joomla.form.field.list-fancy-select"
+                        >
+                            <!-- Africa -->
+                            <option value="Africa/Abidjan">Africa/Abidjan (GMT+0)</option>
+                            <option value="Africa/Accra">Africa/Accra (GMT+0)</option>
+                            <option value="Africa/Addis_Ababa">Africa/Addis_Ababa (GMT+3)</option>
+                            <option value="Africa/Algiers">Africa/Algiers (GMT+1)</option>
+                            <option value="Africa/Cairo">Africa/Cairo (GMT+2)</option>
+                            <option value="Africa/Casablanca">Africa/Casablanca (GMT+1)</option>
+                            <option value="Africa/Johannesburg">Africa/Johannesburg (GMT+2)</option>
+                            <option value="Africa/Lagos">Africa/Lagos (GMT+1)</option>
+                            <option value="Africa/Nairobi">Africa/Nairobi (GMT+3)</option>
+                            <option value="Africa/Tunis">Africa/Tunis (GMT+1)</option>
+                            <!-- America -->
+                            <option value="America/Anchorage">America/Anchorage (GMT-9)</option>
+                            <option value="America/Argentina/Buenos_Aires">America/Buenos_Aires (GMT-3)</option>
+                            <option value="America/Bogota">America/Bogota (GMT-5)</option>
+                            <option value="America/Cancun">America/Cancun (GMT-5)</option>
+                            <option value="America/Caracas">America/Caracas (GMT-4)</option>
+                            <option value="America/Chicago">America/Chicago (GMT-6)</option>
+                            <option value="America/Denver">America/Denver (GMT-7)</option>
+                            <option value="America/Detroit">America/Detroit (GMT-5)</option>
+                            <option value="America/Edmonton">America/Edmonton (GMT-7)</option>
+                            <option value="America/Halifax">America/Halifax (GMT-4)</option>
+                            <option value="America/Havana">America/Havana (GMT-5)</option>
+                            <option value="America/Indiana/Indianapolis">America/Indianapolis (GMT-5)</option>
+                            <option value="America/Lima">America/Lima (GMT-5)</option>
+                            <option value="America/Los_Angeles">America/Los_Angeles (GMT-8)</option>
+                            <option value="America/Mexico_City">America/Mexico_City (GMT-6)</option>
+                            <option value="America/Montreal">America/Montreal (GMT-5)</option>
+                            <option value="America/New_York">America/New_York (GMT-5)</option>
+                            <option value="America/Panama">America/Panama (GMT-5)</option>
+                            <option value="America/Phoenix">America/Phoenix (GMT-7)</option>
+                            <option value="America/Santiago">America/Santiago (GMT-3)</option>
+                            <option value="America/Sao_Paulo">America/Sao_Paulo (GMT-3)</option>
+                            <option value="America/St_Johns">America/St_Johns (GMT-3:30)</option>
+                            <option value="America/Tijuana">America/Tijuana (GMT-8)</option>
+                            <option value="America/Toronto">America/Toronto (GMT-5)</option>
+                            <option value="America/Vancouver">America/Vancouver (GMT-8)</option>
+                            <option value="America/Winnipeg">America/Winnipeg (GMT-6)</option>
+                            <!-- Asia -->
+                            <option value="Asia/Amman">Asia/Amman (GMT+3)</option>
+                            <option value="Asia/Baghdad">Asia/Baghdad (GMT+3)</option>
+                            <option value="Asia/Bangkok">Asia/Bangkok (GMT+7)</option>
+                            <option value="Asia/Beirut">Asia/Beirut (GMT+2)</option>
+                            <option value="Asia/Dhaka">Asia/Dhaka (GMT+6)</option>
+                            <option value="Asia/Dubai">Asia/Dubai (GMT+4)</option>
+                            <option value="Asia/Ho_Chi_Minh">Asia/Ho_Chi_Minh (GMT+7)</option>
+                            <option value="Asia/Hong_Kong">Asia/Hong_Kong (GMT+8)</option>
+                            <option value="Asia/Jakarta">Asia/Jakarta (GMT+7)</option>
+                            <option value="Asia/Jerusalem">Asia/Jerusalem (GMT+2)</option>
+                            <option value="Asia/Kabul">Asia/Kabul (GMT+4:30)</option>
+                            <option value="Asia/Karachi">Asia/Karachi (GMT+5)</option>
+                            <option value="Asia/Kolkata">Asia/Kolkata (GMT+5:30)</option>
+                            <option value="Asia/Kuala_Lumpur">Asia/Kuala_Lumpur (GMT+8)</option>
+                            <option value="Asia/Manila">Asia/Manila (GMT+8)</option>
+                            <option value="Asia/Riyadh">Asia/Riyadh (GMT+3)</option>
+                            <option value="Asia/Seoul">Asia/Seoul (GMT+9)</option>
+                            <option value="Asia/Shanghai">Asia/Shanghai (GMT+8)</option>
+                            <option value="Asia/Singapore">Asia/Singapore (GMT+8)</option>
+                            <option value="Asia/Taipei">Asia/Taipei (GMT+8)</option>
+                            <option value="Asia/Tehran">Asia/Tehran (GMT+3:30)</option>
+                            <option value="Asia/Tokyo">Asia/Tokyo (GMT+9)</option>
+                            <option value="Asia/Vladivostok">Asia/Vladivostok (GMT+10)</option>
+                            <!-- Atlantic -->
+                            <option value="Atlantic/Reykjavik">Atlantic/Reykjavik (GMT+0)</option>
+                            <!-- Australia -->
+                            <option value="Australia/Adelaide">Australia/Adelaide (GMT+9:30)</option>
+                            <option value="Australia/Brisbane">Australia/Brisbane (GMT+10)</option>
+                            <option value="Australia/Darwin">Australia/Darwin (GMT+9:30)</option>
+                            <option value="Australia/Hobart">Australia/Hobart (GMT+10)</option>
+                            <option value="Australia/Melbourne">Australia/Melbourne (GMT+10)</option>
+                            <option value="Australia/Perth">Australia/Perth (GMT+8)</option>
+                            <option value="Australia/Sydney">Australia/Sydney (GMT+10)</option>
+                            <!-- Europe -->
+                            <option value="Europe/Amsterdam">Europe/Amsterdam (GMT+1)</option>
+                            <option value="Europe/Athens">Europe/Athens (GMT+2)</option>
+                            <option value="Europe/Berlin">Europe/Berlin (GMT+1)</option>
+                            <option value="Europe/Brussels">Europe/Brussels (GMT+1)</option>
+                            <option value="Europe/Budapest">Europe/Budapest (GMT+1)</option>
+                            <option value="Europe/Copenhagen">Europe/Copenhagen (GMT+1)</option>
+                            <option value="Europe/Dublin">Europe/Dublin (GMT+0)</option>
+                            <option value="Europe/Helsinki">Europe/Helsinki (GMT+2)</option>
+                            <option value="Europe/Kiev">Europe/Kiev (GMT+2)</option>
+                            <option value="Europe/Lisbon">Europe/Lisbon (GMT+0)</option>
+                            <option value="Europe/London">Europe/London (GMT+0)</option>
+                            <option value="Europe/Madrid">Europe/Madrid (GMT+1)</option>
+                            <option value="Europe/Moscow">Europe/Moscow (GMT+3)</option>
+                            <option value="Europe/Oslo">Europe/Oslo (GMT+1)</option>
+                            <option value="Europe/Paris">Europe/Paris (GMT+1)</option>
+                            <option value="Europe/Prague">Europe/Prague (GMT+1)</option>
+                            <option value="Europe/Rome">Europe/Rome (GMT+1)</option>
+                            <option value="Europe/Stockholm">Europe/Stockholm (GMT+1)</option>
+                            <option value="Europe/Vienna">Europe/Vienna (GMT+1)</option>
+                            <option value="Europe/Warsaw">Europe/Warsaw (GMT+1)</option>
+                            <option value="Europe/Zurich">Europe/Zurich (GMT+1)</option>
+                            <!-- Pacific -->
+                            <option value="Pacific/Auckland">Pacific/Auckland (GMT+12)</option>
+                            <option value="Pacific/Fiji">Pacific/Fiji (GMT+12)</option>
+                            <option value="Pacific/Honolulu">Pacific/Honolulu (GMT-10)</option>
+                            <option value="Pacific/Guam">Pacific/Guam (GMT+10)</option>
+                        </field>
+                        <field
+                            name="label"
+                            type="text"
+                            label="MOD_WORLDCLOCKS_FIELD_CUSTOM_LABEL_LABEL"
+                            description="MOD_WORLDCLOCKS_FIELD_CUSTOM_LABEL_DESC"
+                            hint="e.g. New York Office, London HQ"
+                            required="true"
+                        />
+                    </form>
+                </field>
+
+                <field
+                    name="use_custom_order"
+                    type="radio"
+                    label="MOD_WORLDCLOCKS_FIELD_USE_CUSTOM_ORDER_LABEL"
+                    description="MOD_WORLDCLOCKS_FIELD_USE_CUSTOM_ORDER_DESC"
+                    default="0"
+                    class="btn-group btn-group-yesno"
+                >
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+            </fieldset>
+
+            <fieldset name="styling" label="MOD_WORLDCLOCKS_FIELDSET_STYLING">
+                <!-- TEXT LIST STYLING - shown when display_style=text -->
+                <field
+                    name="text_preview"
+                    type="spacer"
+                    label="MOD_WORLDCLOCKS_TEXT_PREVIEW_HTML"
+                    showon="display_style:text"
+                />
+
+                <field
+                    name="text_city_font_size"
+                    type="text"
+                    label="MOD_WORLDCLOCKS_FIELD_CITY_FONT_SIZE_LABEL"
+                    description="MOD_WORLDCLOCKS_FIELD_CITY_FONT_SIZE_DESC"
+                    default=""
+                    hint="e.g. 1rem, 14px, 1.2em"
+                    showon="display_style:text"
+                />
+
+                <field
+                    name="text_city_font_weight"
+                    type="list"
+                    label="MOD_WORLDCLOCKS_FIELD_CITY_FONT_WEIGHT_LABEL"
+                    description="MOD_WORLDCLOCKS_FIELD_CITY_FONT_WEIGHT_DESC"
+                    default=""
+                    showon="display_style:text"
+                >
+                    <option value="">MOD_WORLDCLOCKS_DEFAULT</option>
+                    <option value="normal">MOD_WORLDCLOCKS_FONT_WEIGHT_NORMAL</option>
+                    <option value="bold">MOD_WORLDCLOCKS_FONT_WEIGHT_BOLD</option>
+                    <option value="lighter">MOD_WORLDCLOCKS_FONT_WEIGHT_LIGHTER</option>
+                </field>
+
+                <field
+                    name="text_city_color"
+                    type="color"
+                    label="MOD_WORLDCLOCKS_FIELD_CITY_COLOR_LABEL"
+                    description="MOD_WORLDCLOCKS_FIELD_CITY_COLOR_DESC"
+                    default=""
+                    showon="display_style:text"
+                />
+
+                <field
+                    name="text_time_font_size"
+                    type="text"
+                    label="MOD_WORLDCLOCKS_FIELD_TIME_FONT_SIZE_LABEL"
+                    description="MOD_WORLDCLOCKS_FIELD_TIME_FONT_SIZE_DESC"
+                    default=""
+                    hint="e.g. 1rem, 14px, 1.2em"
+                    showon="display_style:text"
+                />
+
+                <field
+                    name="text_time_font_weight"
+                    type="list"
+                    label="MOD_WORLDCLOCKS_FIELD_TIME_FONT_WEIGHT_LABEL"
+                    description="MOD_WORLDCLOCKS_FIELD_TIME_FONT_WEIGHT_DESC"
+                    default=""
+                    showon="display_style:text"
+                >
+                    <option value="">MOD_WORLDCLOCKS_DEFAULT</option>
+                    <option value="normal">MOD_WORLDCLOCKS_FONT_WEIGHT_NORMAL</option>
+                    <option value="bold">MOD_WORLDCLOCKS_FONT_WEIGHT_BOLD</option>
+                    <option value="lighter">MOD_WORLDCLOCKS_FONT_WEIGHT_LIGHTER</option>
+                </field>
+
+                <field
+                    name="text_time_color"
+                    type="color"
+                    label="MOD_WORLDCLOCKS_FIELD_TIME_COLOR_LABEL"
+                    description="MOD_WORLDCLOCKS_FIELD_TIME_COLOR_DESC"
+                    default=""
+                    showon="display_style:text"
+                />
+
+                <field
+                    name="text_date_font_size"
+                    type="text"
+                    label="MOD_WORLDCLOCKS_FIELD_DATE_FONT_SIZE_LABEL"
+                    description="MOD_WORLDCLOCKS_FIELD_DATE_FONT_SIZE_DESC"
+                    default=""
+                    hint="e.g. 0.85rem, 12px"
+                    showon="display_style:text"
+                />
+
+                <field
+                    name="text_date_color"
+                    type="color"
+                    label="MOD_WORLDCLOCKS_FIELD_DATE_COLOR_LABEL"
+                    description="MOD_WORLDCLOCKS_FIELD_DATE_COLOR_DESC"
+                    default=""
+                    showon="display_style:text"
+                />
+
+                <field
+                    name="text_border_color"
+                    type="color"
+                    label="MOD_WORLDCLOCKS_FIELD_TEXT_BORDER_COLOR_LABEL"
+                    description="MOD_WORLDCLOCKS_FIELD_TEXT_BORDER_COLOR_DESC"
+                    default=""
+                    showon="display_style:text"
+                />
+
+                <!-- DIGITAL CARDS STYLING - shown when display_style=digital -->
+                <field
+                    name="digital_preview"
+                    type="spacer"
+                    label="MOD_WORLDCLOCKS_DIGITAL_PREVIEW_HTML"
+                    showon="display_style:digital"
+                />
+
+                <field
+                    name="digital_city_font_size"
+                    type="text"
+                    label="MOD_WORLDCLOCKS_FIELD_CITY_FONT_SIZE_LABEL"
+                    description="MOD_WORLDCLOCKS_FIELD_CITY_FONT_SIZE_DESC"
+                    default=""
+                    hint="e.g. 1rem, 14px, 1.2em"
+                    showon="display_style:digital"
+                />
+
+                <field
+                    name="digital_city_font_weight"
+                    type="list"
+                    label="MOD_WORLDCLOCKS_FIELD_CITY_FONT_WEIGHT_LABEL"
+                    description="MOD_WORLDCLOCKS_FIELD_CITY_FONT_WEIGHT_DESC"
+                    default=""
+                    showon="display_style:digital"
+                >
+                    <option value="">MOD_WORLDCLOCKS_DEFAULT</option>
+                    <option value="normal">MOD_WORLDCLOCKS_FONT_WEIGHT_NORMAL</option>
+                    <option value="bold">MOD_WORLDCLOCKS_FONT_WEIGHT_BOLD</option>
+                    <option value="lighter">MOD_WORLDCLOCKS_FONT_WEIGHT_LIGHTER</option>
+                </field>
+
+                <field
+                    name="digital_city_color"
+                    type="color"
+                    label="MOD_WORLDCLOCKS_FIELD_CITY_COLOR_LABEL"
+                    description="MOD_WORLDCLOCKS_FIELD_CITY_COLOR_DESC"
+                    default=""
+                    showon="display_style:digital"
+                />
+
+                <field
+                    name="digital_time_font_size"
+                    type="text"
+                    label="MOD_WORLDCLOCKS_FIELD_TIME_FONT_SIZE_LABEL"
+                    description="MOD_WORLDCLOCKS_FIELD_TIME_FONT_SIZE_DESC"
+                    default=""
+                    hint="e.g. 1.5rem, 18px, 1.5em"
+                    showon="display_style:digital"
+                />
+
+                <field
+                    name="digital_time_font_weight"
+                    type="list"
+                    label="MOD_WORLDCLOCKS_FIELD_TIME_FONT_WEIGHT_LABEL"
+                    description="MOD_WORLDCLOCKS_FIELD_TIME_FONT_WEIGHT_DESC"
+                    default=""
+                    showon="display_style:digital"
+                >
+                    <option value="">MOD_WORLDCLOCKS_DEFAULT</option>
+                    <option value="normal">MOD_WORLDCLOCKS_FONT_WEIGHT_NORMAL</option>
+                    <option value="bold">MOD_WORLDCLOCKS_FONT_WEIGHT_BOLD</option>
+                    <option value="lighter">MOD_WORLDCLOCKS_FONT_WEIGHT_LIGHTER</option>
+                </field>
+
+                <field
+                    name="digital_time_color"
+                    type="color"
+                    label="MOD_WORLDCLOCKS_FIELD_TIME_COLOR_LABEL"
+                    description="MOD_WORLDCLOCKS_FIELD_TIME_COLOR_DESC"
+                    default=""
+                    showon="display_style:digital"
+                />
+
+                <field
+                    name="digital_date_font_size"
+                    type="text"
+                    label="MOD_WORLDCLOCKS_FIELD_DATE_FONT_SIZE_LABEL"
+                    description="MOD_WORLDCLOCKS_FIELD_DATE_FONT_SIZE_DESC"
+                    default=""
+                    hint="e.g. 0.85rem, 12px"
+                    showon="display_style:digital"
+                />
+
+                <field
+                    name="digital_date_color"
+                    type="color"
+                    label="MOD_WORLDCLOCKS_FIELD_DATE_COLOR_LABEL"
+                    description="MOD_WORLDCLOCKS_FIELD_DATE_COLOR_DESC"
+                    default=""
+                    showon="display_style:digital"
+                />
+
+                <field
+                    name="digital_card_bg"
+                    type="color"
+                    label="MOD_WORLDCLOCKS_FIELD_DIGITAL_CARD_BG_LABEL"
+                    description="MOD_WORLDCLOCKS_FIELD_DIGITAL_CARD_BG_DESC"
+                    default=""
+                    showon="display_style:digital"
+                />
+
+                <field
+                    name="digital_card_border"
+                    type="color"
+                    label="MOD_WORLDCLOCKS_FIELD_DIGITAL_CARD_BORDER_LABEL"
+                    description="MOD_WORLDCLOCKS_FIELD_DIGITAL_CARD_BORDER_DESC"
+                    default=""
+                    showon="display_style:digital"
+                />
+
+                <field
+                    name="digital_card_radius"
+                    type="text"
+                    label="MOD_WORLDCLOCKS_FIELD_DIGITAL_CARD_RADIUS_LABEL"
+                    description="MOD_WORLDCLOCKS_FIELD_DIGITAL_CARD_RADIUS_DESC"
+                    default=""
+                    hint="e.g. 8px, 12px, 0"
+                    showon="display_style:digital"
+                />
+
+                <!-- ANALOG CLOCK STYLING - shown when display_style=analog -->
+                <field
+                    name="analog_preview"
+                    type="spacer"
+                    label="MOD_WORLDCLOCKS_ANALOG_PREVIEW_HTML"
+                    showon="display_style:analog"
+                />
+
+                <field
+                    name="analog_city_font_size"
+                    type="text"
+                    label="MOD_WORLDCLOCKS_FIELD_CITY_FONT_SIZE_LABEL"
+                    description="MOD_WORLDCLOCKS_FIELD_CITY_FONT_SIZE_DESC"
+                    default=""
+                    hint="e.g. 1rem, 14px, 1.2em"
+                    showon="display_style:analog"
+                />
+
+                <field
+                    name="analog_city_font_weight"
+                    type="list"
+                    label="MOD_WORLDCLOCKS_FIELD_CITY_FONT_WEIGHT_LABEL"
+                    description="MOD_WORLDCLOCKS_FIELD_CITY_FONT_WEIGHT_DESC"
+                    default=""
+                    showon="display_style:analog"
+                >
+                    <option value="">MOD_WORLDCLOCKS_DEFAULT</option>
+                    <option value="normal">MOD_WORLDCLOCKS_FONT_WEIGHT_NORMAL</option>
+                    <option value="bold">MOD_WORLDCLOCKS_FONT_WEIGHT_BOLD</option>
+                    <option value="lighter">MOD_WORLDCLOCKS_FONT_WEIGHT_LIGHTER</option>
+                </field>
+
+                <field
+                    name="analog_city_color"
+                    type="color"
+                    label="MOD_WORLDCLOCKS_FIELD_CITY_COLOR_LABEL"
+                    description="MOD_WORLDCLOCKS_FIELD_CITY_COLOR_DESC"
+                    default=""
+                    showon="display_style:analog"
+                />
+
+                <field
+                    name="analog_date_font_size"
+                    type="text"
+                    label="MOD_WORLDCLOCKS_FIELD_DATE_FONT_SIZE_LABEL"
+                    description="MOD_WORLDCLOCKS_FIELD_DATE_FONT_SIZE_DESC"
+                    default=""
+                    hint="e.g. 0.85rem, 12px"
+                    showon="display_style:analog"
+                />
+
+                <field
+                    name="analog_date_color"
+                    type="color"
+                    label="MOD_WORLDCLOCKS_FIELD_DATE_COLOR_LABEL"
+                    description="MOD_WORLDCLOCKS_FIELD_DATE_COLOR_DESC"
+                    default=""
+                    showon="display_style:analog"
+                />
+
+                <field
+                    name="analog_size"
+                    type="text"
+                    label="MOD_WORLDCLOCKS_FIELD_ANALOG_SIZE_LABEL"
+                    description="MOD_WORLDCLOCKS_FIELD_ANALOG_SIZE_DESC"
+                    default=""
+                    hint="e.g. 100px, 120px, 80px"
+                    showon="display_style:analog"
+                />
+
+                <field
+                    name="analog_face_color"
+                    type="color"
+                    label="MOD_WORLDCLOCKS_FIELD_ANALOG_FACE_COLOR_LABEL"
+                    description="MOD_WORLDCLOCKS_FIELD_ANALOG_FACE_COLOR_DESC"
+                    default=""
+                    showon="display_style:analog"
+                />
+
+                <field
+                    name="analog_border_color"
+                    type="color"
+                    label="MOD_WORLDCLOCKS_FIELD_ANALOG_BORDER_COLOR_LABEL"
+                    description="MOD_WORLDCLOCKS_FIELD_ANALOG_BORDER_COLOR_DESC"
+                    default=""
+                    showon="display_style:analog"
+                />
+
+                <field
+                    name="analog_hand_color"
+                    type="color"
+                    label="MOD_WORLDCLOCKS_FIELD_ANALOG_HAND_COLOR_LABEL"
+                    description="MOD_WORLDCLOCKS_FIELD_ANALOG_HAND_COLOR_DESC"
+                    default=""
+                    showon="display_style:analog"
+                />
+
+                <field
+                    name="analog_second_hand_color"
+                    type="color"
+                    label="MOD_WORLDCLOCKS_FIELD_ANALOG_SECOND_HAND_COLOR_LABEL"
+                    description="MOD_WORLDCLOCKS_FIELD_ANALOG_SECOND_HAND_COLOR_DESC"
+                    default=""
+                    showon="display_style:analog"
+                />
+
+                <field
+                    name="analog_center_color"
+                    type="color"
+                    label="MOD_WORLDCLOCKS_FIELD_ANALOG_CENTER_COLOR_LABEL"
+                    description="MOD_WORLDCLOCKS_FIELD_ANALOG_CENTER_COLOR_DESC"
+                    default=""
+                    showon="display_style:analog"
+                />
+
+                <field
+                    name="analog_number_color"
+                    type="color"
+                    label="MOD_WORLDCLOCKS_FIELD_ANALOG_NUMBER_COLOR_LABEL"
+                    description="MOD_WORLDCLOCKS_FIELD_ANALOG_NUMBER_COLOR_DESC"
+                    default=""
+                    showon="display_style:analog"
+                />
+
+                <field
+                    name="analog_number_font_size"
+                    type="text"
+                    label="MOD_WORLDCLOCKS_FIELD_ANALOG_NUMBER_FONT_SIZE_LABEL"
+                    description="MOD_WORLDCLOCKS_FIELD_ANALOG_NUMBER_FONT_SIZE_DESC"
+                    default=""
+                    hint="e.g. 0.7rem, 10px, 12px"
+                    showon="display_style:analog"
+                />
+            </fieldset>
+
+            <fieldset name="customcss" label="MOD_WORLDCLOCKS_FIELDSET_CUSTOM_CSS">
+                <field
+                    name="custom_css"
+                    type="editor"
+                    label="MOD_WORLDCLOCKS_FIELD_CUSTOM_CSS_LABEL"
+                    description="MOD_WORLDCLOCKS_FIELD_CUSTOM_CSS_DESC"
+                    editor="codemirror|none"
+                    syntax="css"
+                    filter="raw"
+                    buttons="false"
+                    height="300"
+                />
+            </fieldset>
+
             <fieldset name="advanced">
                 <field
                     name="moduleclass_sfx"
@@ -161,16 +807,6 @@
                     label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
                     description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC"
                     rows="3"
-                />
-
-                <field
-                    name="custom_css"
-                    type="textarea"
-                    label="MOD_WORLDCLOCKS_FIELD_CUSTOM_CSS_LABEL"
-                    description="MOD_WORLDCLOCKS_FIELD_CUSTOM_CSS_DESC"
-                    rows="10"
-                    filter="raw"
-                    class="input-xxlarge"
                 />
             </fieldset>
         </fields>

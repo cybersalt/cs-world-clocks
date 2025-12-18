@@ -35,26 +35,8 @@ class Dispatcher extends AbstractModuleDispatcher
         $params = $data['params'];
         $module = $data['module'];
 
-        // Get selected capitals
-        $capitals = $params->get('capitals', []);
-
-        if (!is_array($capitals)) {
-            $capitals = $capitals ? [$capitals] : [];
-        }
-
         // Build clock data
-        $clocks = [];
-        $capitalNames = $this->getCapitalNames();
-
-        foreach ($capitals as $timezone) {
-            if (isset($capitalNames[$timezone])) {
-                $clocks[] = [
-                    'timezone' => $timezone,
-                    'name' => Text::_($capitalNames[$timezone]),
-                    'nameKey' => $capitalNames[$timezone]
-                ];
-            }
-        }
+        $clocks = $this->buildClockList($params);
 
         $data['clocks'] = $clocks;
         $data['displayStyle'] = $params->get('display_style', 'digital');
@@ -64,10 +46,100 @@ class Dispatcher extends AbstractModuleDispatcher
         $data['moduleId'] = $module->id;
         $data['customCss'] = $params->get('custom_css', '');
 
+        // Local time settings
+        $data['showLocalTime'] = (bool) $params->get('show_local_time', 0);
+        $data['localTimePosition'] = $params->get('local_time_position', 'first');
+        $data['localTimeLabel'] = $params->get('local_time_label', '');
+
         // Register assets
         $this->registerAssets($data);
 
         return $data;
+    }
+
+    /**
+     * Build the list of clocks from all sources
+     *
+     * @param   object  $params  Module parameters
+     *
+     * @return  array
+     */
+    protected function buildClockList($params): array
+    {
+        $clocks = [];
+        $useCustomOnly = (bool) $params->get('use_custom_order', 0);
+
+        if ($useCustomOnly) {
+            // Only use custom clocks from subform
+            $customClocks = $params->get('clock_order', []);
+
+            if (!empty($customClocks)) {
+                foreach ($customClocks as $clock) {
+                    if (!empty($clock->timezone) && !empty($clock->label)) {
+                        $clocks[] = [
+                            'timezone' => $clock->timezone,
+                            'name' => $clock->label,
+                            'nameKey' => ''
+                        ];
+                    }
+                }
+            }
+        } else {
+            // Add selected capitals from subform (ordered)
+            $capitals = $params->get('capitals', []);
+
+            if (!empty($capitals)) {
+                foreach ($capitals as $capital) {
+                    if (!empty($capital->city)) {
+                        // Value format: timezone|langKey
+                        $parts = explode('|', $capital->city, 2);
+                        if (count($parts) === 2) {
+                            $clocks[] = [
+                                'timezone' => $parts[0],
+                                'name' => Text::_($parts[1]),
+                                'nameKey' => $parts[1]
+                            ];
+                        }
+                    }
+                }
+            }
+
+            // Add selected regional cities from subform (ordered)
+            $regionalCities = $params->get('regional_cities', []);
+
+            if (!empty($regionalCities)) {
+                foreach ($regionalCities as $city) {
+                    if (!empty($city->city)) {
+                        // Value format: timezone|langKey
+                        $parts = explode('|', $city->city, 2);
+                        if (count($parts) === 2) {
+                            $clocks[] = [
+                                'timezone' => $parts[0],
+                                'name' => Text::_($parts[1]),
+                                'nameKey' => $parts[1]
+                            ];
+                        }
+                    }
+                }
+            }
+
+            // Add custom clocks from subform
+            $customClocks = $params->get('clock_order', []);
+
+            if (!empty($customClocks)) {
+                foreach ($customClocks as $clock) {
+                    if (!empty($clock->timezone) && !empty($clock->label)) {
+                        $clocks[] = [
+                            'timezone' => $clock->timezone,
+                            'name' => $clock->label,
+                            'nameKey' => ''
+                        ];
+                    }
+                }
+            }
+        }
+
+        return $clocks;
     }
 
     /**
@@ -102,7 +174,10 @@ class Dispatcher extends AbstractModuleDispatcher
             'displayStyle' => $data['displayStyle'],
             'timeFormat' => $data['timeFormat'],
             'showSeconds' => $data['showSeconds'],
-            'showDate' => $data['showDate']
+            'showDate' => $data['showDate'],
+            'showLocalTime' => $data['showLocalTime'],
+            'localTimePosition' => $data['localTimePosition'],
+            'localTimeLabel' => $data['localTimeLabel']
         ];
 
         $wa->addInlineScript(
@@ -113,86 +188,178 @@ class Dispatcher extends AbstractModuleDispatcher
             ['mod_worldclocks']
         );
 
-        // Add custom CSS if provided
+        // Add styling options as inline CSS
+        $this->addStylingCss($wa, $data);
+
+        // Add custom CSS if provided (output directly, user provides complete rules)
         if (!empty($data['customCss'])) {
-            $wa->addInlineStyle(
-                '#mod-worldclocks-' . $data['moduleId'] . ' { ' . $data['customCss'] . ' }'
-            );
+            $wa->addInlineStyle($data['customCss']);
         }
     }
 
     /**
-     * Get mapping of timezone to capital name language keys
+     * Generate and add CSS from styling options
      *
-     * @return  array
+     * @param   WebAssetManager  $wa    The web asset manager
+     * @param   array            $data  The layout data
+     *
+     * @return  void
      */
-    protected function getCapitalNames(): array
+    protected function addStylingCss(WebAssetManager $wa, array $data): void
     {
-        return [
-            'Europe/London' => 'MOD_WORLDCLOCKS_CAPITAL_LONDON',
-            'Europe/Paris' => 'MOD_WORLDCLOCKS_CAPITAL_PARIS',
-            'Europe/Berlin' => 'MOD_WORLDCLOCKS_CAPITAL_BERLIN',
-            'Europe/Rome' => 'MOD_WORLDCLOCKS_CAPITAL_ROME',
-            'Europe/Madrid' => 'MOD_WORLDCLOCKS_CAPITAL_MADRID',
-            'Europe/Amsterdam' => 'MOD_WORLDCLOCKS_CAPITAL_AMSTERDAM',
-            'Europe/Brussels' => 'MOD_WORLDCLOCKS_CAPITAL_BRUSSELS',
-            'Europe/Vienna' => 'MOD_WORLDCLOCKS_CAPITAL_VIENNA',
-            'Europe/Stockholm' => 'MOD_WORLDCLOCKS_CAPITAL_STOCKHOLM',
-            'Europe/Oslo' => 'MOD_WORLDCLOCKS_CAPITAL_OSLO',
-            'Europe/Copenhagen' => 'MOD_WORLDCLOCKS_CAPITAL_COPENHAGEN',
-            'Europe/Helsinki' => 'MOD_WORLDCLOCKS_CAPITAL_HELSINKI',
-            'Europe/Warsaw' => 'MOD_WORLDCLOCKS_CAPITAL_WARSAW',
-            'Europe/Prague' => 'MOD_WORLDCLOCKS_CAPITAL_PRAGUE',
-            'Europe/Budapest' => 'MOD_WORLDCLOCKS_CAPITAL_BUDAPEST',
-            'Europe/Athens' => 'MOD_WORLDCLOCKS_CAPITAL_ATHENS',
-            'Europe/Lisbon' => 'MOD_WORLDCLOCKS_CAPITAL_LISBON',
-            'Europe/Dublin' => 'MOD_WORLDCLOCKS_CAPITAL_DUBLIN',
-            'Europe/Zurich' => 'MOD_WORLDCLOCKS_CAPITAL_BERN',
-            'Europe/Moscow' => 'MOD_WORLDCLOCKS_CAPITAL_MOSCOW',
-            'Europe/Kiev' => 'MOD_WORLDCLOCKS_CAPITAL_KYIV',
-            'America/New_York' => 'MOD_WORLDCLOCKS_CAPITAL_WASHINGTON',
-            'America/Toronto' => 'MOD_WORLDCLOCKS_CAPITAL_OTTAWA',
-            'America/Mexico_City' => 'MOD_WORLDCLOCKS_CAPITAL_MEXICO_CITY',
-            'America/Havana' => 'MOD_WORLDCLOCKS_CAPITAL_HAVANA',
-            'America/Panama' => 'MOD_WORLDCLOCKS_CAPITAL_PANAMA_CITY',
-            'America/Bogota' => 'MOD_WORLDCLOCKS_CAPITAL_BOGOTA',
-            'America/Lima' => 'MOD_WORLDCLOCKS_CAPITAL_LIMA',
-            'America/Santiago' => 'MOD_WORLDCLOCKS_CAPITAL_SANTIAGO',
-            'America/Sao_Paulo' => 'MOD_WORLDCLOCKS_CAPITAL_BRASILIA',
-            'America/Argentina/Buenos_Aires' => 'MOD_WORLDCLOCKS_CAPITAL_BUENOS_AIRES',
-            'America/Caracas' => 'MOD_WORLDCLOCKS_CAPITAL_CARACAS',
-            'Asia/Tokyo' => 'MOD_WORLDCLOCKS_CAPITAL_TOKYO',
-            'Asia/Seoul' => 'MOD_WORLDCLOCKS_CAPITAL_SEOUL',
-            'Asia/Shanghai' => 'MOD_WORLDCLOCKS_CAPITAL_BEIJING',
-            'Asia/Hong_Kong' => 'MOD_WORLDCLOCKS_CAPITAL_HONG_KONG',
-            'Asia/Taipei' => 'MOD_WORLDCLOCKS_CAPITAL_TAIPEI',
-            'Asia/Singapore' => 'MOD_WORLDCLOCKS_CAPITAL_SINGAPORE',
-            'Asia/Bangkok' => 'MOD_WORLDCLOCKS_CAPITAL_BANGKOK',
-            'Asia/Jakarta' => 'MOD_WORLDCLOCKS_CAPITAL_JAKARTA',
-            'Asia/Manila' => 'MOD_WORLDCLOCKS_CAPITAL_MANILA',
-            'Asia/Kuala_Lumpur' => 'MOD_WORLDCLOCKS_CAPITAL_KUALA_LUMPUR',
-            'Asia/Ho_Chi_Minh' => 'MOD_WORLDCLOCKS_CAPITAL_HANOI',
-            'Asia/Kolkata' => 'MOD_WORLDCLOCKS_CAPITAL_NEW_DELHI',
-            'Asia/Dhaka' => 'MOD_WORLDCLOCKS_CAPITAL_DHAKA',
-            'Asia/Karachi' => 'MOD_WORLDCLOCKS_CAPITAL_ISLAMABAD',
-            'Asia/Kabul' => 'MOD_WORLDCLOCKS_CAPITAL_KABUL',
-            'Asia/Tehran' => 'MOD_WORLDCLOCKS_CAPITAL_TEHRAN',
-            'Asia/Baghdad' => 'MOD_WORLDCLOCKS_CAPITAL_BAGHDAD',
-            'Asia/Riyadh' => 'MOD_WORLDCLOCKS_CAPITAL_RIYADH',
-            'Asia/Dubai' => 'MOD_WORLDCLOCKS_CAPITAL_ABU_DHABI',
-            'Asia/Jerusalem' => 'MOD_WORLDCLOCKS_CAPITAL_JERUSALEM',
-            'Asia/Beirut' => 'MOD_WORLDCLOCKS_CAPITAL_BEIRUT',
-            'Asia/Amman' => 'MOD_WORLDCLOCKS_CAPITAL_AMMAN',
-            'Africa/Cairo' => 'MOD_WORLDCLOCKS_CAPITAL_CAIRO',
-            'Africa/Johannesburg' => 'MOD_WORLDCLOCKS_CAPITAL_PRETORIA',
-            'Africa/Lagos' => 'MOD_WORLDCLOCKS_CAPITAL_ABUJA',
-            'Africa/Nairobi' => 'MOD_WORLDCLOCKS_CAPITAL_NAIROBI',
-            'Africa/Casablanca' => 'MOD_WORLDCLOCKS_CAPITAL_RABAT',
-            'Africa/Tunis' => 'MOD_WORLDCLOCKS_CAPITAL_TUNIS',
-            'Africa/Algiers' => 'MOD_WORLDCLOCKS_CAPITAL_ALGIERS',
-            'Australia/Sydney' => 'MOD_WORLDCLOCKS_CAPITAL_CANBERRA',
-            'Pacific/Auckland' => 'MOD_WORLDCLOCKS_CAPITAL_WELLINGTON',
-            'Pacific/Fiji' => 'MOD_WORLDCLOCKS_CAPITAL_SUVA',
-        ];
+        $params = $data['params'];
+        $moduleId = $data['moduleId'];
+        $displayStyle = $data['displayStyle'];
+        $selector = '#mod-worldclocks-' . $moduleId;
+
+        $css = [];
+
+        // Get style-specific prefix
+        $prefix = $displayStyle . '_';
+
+        // City/Name styling (style-specific)
+        $cityStyles = [];
+        $cityFontSize = $params->get($prefix . 'city_font_size', '');
+        $cityFontWeight = $params->get($prefix . 'city_font_weight', '');
+        $cityColor = $params->get($prefix . 'city_color', '');
+
+        if (!empty($cityFontSize)) {
+            $cityStyles[] = 'font-size: ' . htmlspecialchars($cityFontSize);
+        }
+        if (!empty($cityFontWeight)) {
+            $cityStyles[] = 'font-weight: ' . htmlspecialchars($cityFontWeight);
+        }
+        if (!empty($cityColor)) {
+            $cityStyles[] = 'color: ' . htmlspecialchars($cityColor);
+        }
+        if (!empty($cityStyles)) {
+            $css[] = $selector . ' .worldclock__name { ' . implode('; ', $cityStyles) . '; }';
+        }
+
+        // Time styling (for text and digital styles)
+        if ($displayStyle !== 'analog') {
+            $timeStyles = [];
+            $timeFontSize = $params->get($prefix . 'time_font_size', '');
+            $timeFontWeight = $params->get($prefix . 'time_font_weight', '');
+            $timeColor = $params->get($prefix . 'time_color', '');
+
+            if (!empty($timeFontSize)) {
+                $timeStyles[] = 'font-size: ' . htmlspecialchars($timeFontSize);
+            }
+            if (!empty($timeFontWeight)) {
+                $timeStyles[] = 'font-weight: ' . htmlspecialchars($timeFontWeight);
+            }
+            if (!empty($timeColor)) {
+                $timeStyles[] = 'color: ' . htmlspecialchars($timeColor);
+            }
+            if (!empty($timeStyles)) {
+                $css[] = $selector . ' .worldclock__time { ' . implode('; ', $timeStyles) . '; }';
+            }
+        }
+
+        // Date styling (style-specific)
+        $dateStyles = [];
+        $dateFontSize = $params->get($prefix . 'date_font_size', '');
+        $dateColor = $params->get($prefix . 'date_color', '');
+
+        if (!empty($dateFontSize)) {
+            $dateStyles[] = 'font-size: ' . htmlspecialchars($dateFontSize);
+        }
+        if (!empty($dateColor)) {
+            $dateStyles[] = 'color: ' . htmlspecialchars($dateColor);
+        }
+        if (!empty($dateStyles)) {
+            $css[] = $selector . ' .worldclock__date { ' . implode('; ', $dateStyles) . '; }';
+        }
+
+        // Text style specific
+        if ($displayStyle === 'text') {
+            $textBorderColor = $params->get('text_border_color', '');
+            if (!empty($textBorderColor)) {
+                $css[] = $selector . ' .worldclock { border-color: ' . htmlspecialchars($textBorderColor) . '; }';
+            }
+        }
+
+        // Digital style specific
+        if ($displayStyle === 'digital') {
+            $cardStyles = [];
+            $cardBg = $params->get('digital_card_bg', '');
+            $cardBorder = $params->get('digital_card_border', '');
+            $cardRadius = $params->get('digital_card_radius', '');
+
+            if (!empty($cardBg)) {
+                $cardStyles[] = 'background: ' . htmlspecialchars($cardBg);
+            }
+            if (!empty($cardBorder)) {
+                $cardStyles[] = 'border-color: ' . htmlspecialchars($cardBorder);
+            }
+            if (!empty($cardRadius)) {
+                $cardStyles[] = 'border-radius: ' . htmlspecialchars($cardRadius);
+            }
+            if (!empty($cardStyles)) {
+                $css[] = $selector . ' .worldclock { ' . implode('; ', $cardStyles) . '; }';
+            }
+        }
+
+        // Analog style specific
+        if ($displayStyle === 'analog') {
+            $analogSize = $params->get('analog_size', '');
+            $analogFaceColor = $params->get('analog_face_color', '');
+            $analogBorderColor = $params->get('analog_border_color', '');
+            $analogHandColor = $params->get('analog_hand_color', '');
+            $analogSecondHandColor = $params->get('analog_second_hand_color', '');
+            $analogCenterColor = $params->get('analog_center_color', '');
+            $analogNumberColor = $params->get('analog_number_color', '');
+            $analogNumberFontSize = $params->get('analog_number_font_size', '');
+
+            // Clock size
+            if (!empty($analogSize)) {
+                $css[] = $selector . ' .worldclock__analog { width: ' . htmlspecialchars($analogSize) . '; height: ' . htmlspecialchars($analogSize) . '; }';
+            }
+
+            // Clock face
+            $faceStyles = [];
+            if (!empty($analogFaceColor)) {
+                $faceStyles[] = 'background: ' . htmlspecialchars($analogFaceColor);
+            }
+            if (!empty($analogBorderColor)) {
+                $faceStyles[] = 'border-color: ' . htmlspecialchars($analogBorderColor);
+            }
+            if (!empty($faceStyles)) {
+                $css[] = $selector . ' .worldclock__face { ' . implode('; ', $faceStyles) . '; }';
+            }
+
+            // Hour and minute hands
+            if (!empty($analogHandColor)) {
+                $css[] = $selector . ' .worldclock__hand--hour, ' . $selector . ' .worldclock__hand--minute { background: ' . htmlspecialchars($analogHandColor) . '; }';
+            }
+
+            // Second hand
+            if (!empty($analogSecondHandColor)) {
+                $css[] = $selector . ' .worldclock__hand--second { background: ' . htmlspecialchars($analogSecondHandColor) . '; }';
+            }
+
+            // Center dot
+            if (!empty($analogCenterColor)) {
+                $css[] = $selector . ' .worldclock__center { background: ' . htmlspecialchars($analogCenterColor) . '; }';
+            }
+
+            // Numbers
+            $numberStyles = [];
+            if (!empty($analogNumberColor)) {
+                $numberStyles[] = 'color: ' . htmlspecialchars($analogNumberColor);
+            }
+            if (!empty($analogNumberFontSize)) {
+                $numberStyles[] = 'font-size: ' . htmlspecialchars($analogNumberFontSize);
+            }
+            if (!empty($numberStyles)) {
+                $css[] = $selector . ' .worldclock__number { ' . implode('; ', $numberStyles) . '; }';
+            }
+        }
+
+        // Add combined CSS if any styles were set
+        if (!empty($css)) {
+            $wa->addInlineStyle(implode("\n", $css));
+        }
     }
 }
