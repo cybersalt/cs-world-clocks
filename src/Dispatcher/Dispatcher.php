@@ -150,9 +150,10 @@ class Dispatcher extends AbstractModuleDispatcher
         // Add styling options as inline CSS
         $this->addStylingCss($wa, $data);
 
-        // Add custom CSS if provided (output directly, user provides complete rules)
+        // Add custom CSS if provided (user provides complete rules). Escape "<" so the value
+        // can't break out of the <style> block; ">" is a valid selector, so leave it.
         if (!empty($data['customCss'])) {
-            $wa->addInlineStyle($data['customCss']);
+            $wa->addInlineStyle(str_replace('<', '\00003c ', $data['customCss']));
         }
     }
 
