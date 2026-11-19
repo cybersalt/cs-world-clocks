@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<changelogs>
+  <changelog>
+    <element>mod_worldclocks</element>
+    <type>module</type>
+    <version>1.1.2</version>
+    <security>
+      <item><![CDATA[<strong>Custom CSS escaping</strong>: the Custom CSS field is now escaped on output (<code>&lt;</code> is encoded), so a value can no longer close the <code>&lt;style&gt;</code> block and inject a script]]></item>
+      <item><![CDATA[<strong>Clock settings in the page script</strong>: clock labels are now encoded so <code>&lt;</code> and <code>&amp;</code> can't affect the inline script that passes the settings to the clocks]]></item>
+    </security>
+    <addition>
+      <item><![CDATA[<strong>File check</strong>: the module settings now show whether every installed file matches the released version, and warn when an install or update did not finish (for example a file left at 0 bytes)]]></item>
+    </addition>
+  </changelog>
+</changelogs>

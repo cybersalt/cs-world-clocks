@@ -7,6 +7,22 @@
     </div>
 
     <h2>
+        <span class="version-badge">v1.1.2</span>
+        <span class="date">2026-11-19</span>
+    </h2>
+
+    <h3><span class="section-icon">🔒</span>Security</h3>
+    <ul>
+        <li><strong>Custom CSS escaping</strong>: the Custom CSS field is now escaped on output (<code>&lt;</code> is encoded), so a value can no longer close the <code>&lt;style&gt;</code> block and inject a script</li>
+        <li><strong>Clock settings in the page script</strong>: clock labels are now encoded so <code>&lt;</code> and <code>&amp;</code> can't affect the inline script that passes the settings to the clocks</li>
+    </ul>
+
+    <h3><span class="section-icon">📦</span>New Features</h3>
+    <ul>
+        <li><strong>File check</strong>: the module settings now show whether every installed file matches the released version, and warn when an install or update did not finish (for example a file left at 0 bytes)</li>
+    </ul>
+
+    <h2>
         <span class="version-badge">v1.1.1</span>
         <span class="date">2025-12-18</span>
     </h2>

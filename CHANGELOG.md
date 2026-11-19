@@ -5,11 +5,14 @@ All notable changes to the World Clocks module will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [1.1.2] - 2026-11-19
 
 ### Security
 - **Custom CSS escaping**: the Custom CSS field is now escaped on output (`<` is encoded), so a value can no longer close the `<style>` block and inject a script
 - **Clock settings in the page script**: clock labels are now encoded so `<` and `&` can't affect the inline script that passes the settings to the clocks
+
+### 📦 New Features
+- **File check**: the module settings now show whether every installed file matches the released version, and warn when an install or update did not finish (for example a file left at 0 bytes)
 
 ## [1.1.1] - 2025-12-18
 
