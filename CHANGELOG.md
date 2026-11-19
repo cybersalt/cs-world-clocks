@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Security
 - **Custom CSS escaping**: the Custom CSS field is now escaped on output (`<` is encoded), so a value can no longer close the `<style>` block and inject a script
+- **Clock settings in the page script**: clock labels are now encoded so `<` and `&` can't affect the inline script that passes the settings to the clocks
 
 ## [1.1.1] - 2025-12-18
 

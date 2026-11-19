@@ -139,9 +139,11 @@ class Dispatcher extends AbstractModuleDispatcher
             'localTimeLabel' => $data['localTimeLabel']
         ];
 
+        // JSON_HEX_TAG/AMP keep labels from closing or confusing the inline <script>
         $wa->addInlineScript(
             'window.WorldClocks = window.WorldClocks || {};'
-            . 'window.WorldClocks["module' . $data['moduleId'] . '"] = ' . json_encode($config) . ';',
+            . 'window.WorldClocks["module' . (int) $data['moduleId'] . '"] = '
+            . json_encode($config, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) . ';',
             ['position' => 'before'],
             [],
             ['mod_worldclocks']
